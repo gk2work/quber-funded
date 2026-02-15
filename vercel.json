@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/coingecko/simple/price",
+            "destination": "/api/coingecko/simple/price"
+        }
+    ]
+}
