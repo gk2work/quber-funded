@@ -46,7 +46,7 @@ export default function ForexTicker() {
 
     fetchPrices();
 
-    const interval = setInterval(fetchPrices, 2000);
+    const interval = setInterval(fetchPrices, 10000);
 
     return () => clearInterval(interval);
   }, []);

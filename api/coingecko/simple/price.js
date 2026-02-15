@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    res.setHeader("Cache-Control", "s-maxage=2, stale-while-revalidate");
+    res.setHeader("Cache-Control", "s-maxage=10, stale-while-revalidate");
     res.status(200).json(data);
   } catch (error) {
     console.error("CoinGecko API Error:", error.message);
