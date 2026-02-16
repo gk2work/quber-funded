@@ -127,7 +127,7 @@ export default function PricingSection() {
         {/* BECOME A PARTNER */}
         <ScrollReveal direction="up" delay={900}>
           <div
-            className="mt-14 rounded-3xl bg-white/80 backdrop-blur p-8 shadow-sm border border-blue-200
+            className="mt-14 max-w-6xl mx-auto rounded-3xl bg-white/80 backdrop-blur p-8 shadow-sm border border-blue-200
                           flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8"
           >
             {/* LEFT */}
@@ -135,7 +135,7 @@ export default function PricingSection() {
               <h3 className="text-2xl font-semibold text-gray-900">
                 Become a <span className="text-blue-600">Partner</span>
               </h3>
-              <p className="text-gray-600 mt-2 max-w-sm text-sm">
+              <p className="text-gray-600 mt-2 max-w-md text-sm">
                 Earn smart, scalable income with attractive commissions and
                 recurring earnings from every active trader you onboard.
               </p>
