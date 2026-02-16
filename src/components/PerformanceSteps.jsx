@@ -28,7 +28,7 @@ export default function PerformanceSteps() {
       id="why-quber"
       className="bg-white py-20 border-t border-b border-gray-200"
     >
-      <div className="max-w-10xl mx-auto px-8 lg:px-12">
+      <div className="max-w-8xl mx-auto px-8 lg:px-12">
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           {/* Left - Title */}
           <ScrollReveal direction="left" delay={0}>

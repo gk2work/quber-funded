@@ -44,7 +44,7 @@ export default function FAQ() {
 
   return (
     <section id="faqs" className="bg-[#06090f] text-white py-20">
-      <div className="max-w-10xl mx-auto px-8 lg:px-12">
+      <div className="max-w-8xl mx-auto px-8 lg:px-12">
         <div className="text-center mb-12">
           <ScrollReveal direction="fade" delay={0}>
             <p className="text-blue-500 text-sm font-semibold mb-2">

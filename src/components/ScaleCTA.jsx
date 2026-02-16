@@ -4,7 +4,7 @@ import ScrollReveal from "./shared/ScrollReveal";
 export default function ScaleCTA() {
   return (
     <section className="bg-[#06090f] text-white py-20">
-      <div className="max-w-10xl mx-auto px-8 lg:px-12 text-center">
+      <div className="max-w-8xl mx-auto px-8 lg:px-12 text-center">
         <ScrollReveal direction="up" delay={0}>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to <span className="text-blue-500">Scale Beyond</span>

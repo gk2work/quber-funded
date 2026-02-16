@@ -4,7 +4,7 @@ import ScrollReveal from "./shared/ScrollReveal";
 export default function CTASection() {
   return (
     <section className="bg-[#06090f] py-16">
-      <div className="max-w-10xl mx-auto px-8 lg:px-12">
+      <div className="max-w-8xl mx-auto px-8 lg:px-12">
         <ScrollReveal direction="up" delay={0}>
           <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 rounded-3xl p-12 shadow-xl">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">

@@ -81,7 +81,7 @@ export default function PricingSection() {
       id="pricing"
       className="bg-gradient-to-b from-[#f6f8fc] to-[#e9eef8] py-24"
     >
-      <div className="max-w-12xl mx-auto px-8 lg:px-12 text-center">
+      <div className="max-w-8xl mx-auto px-8 lg:px-12 text-center">
         {/* BADGES */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {badges.map(({ text, icon }, i) => (
