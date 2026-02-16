@@ -5,6 +5,7 @@ import {
   GrowthScale,
   Mobile,
 } from "../assets/images/index";
+import ScrollReveal from "./shared/ScrollReveal";
 
 export default function FundingPaths() {
   const features = [
@@ -18,7 +19,7 @@ export default function FundingPaths() {
     {
       title: "Live Funded Stage",
       description:
-        "Move from evaluation to real capital allocation and start earning on performance — not promises.",
+        "Move from evaluation to real capital allocation and start earning on performance not promises.",
       icon: LiveFunded,
       position: "bottom-left",
     },
@@ -97,71 +98,77 @@ export default function FundingPaths() {
 
         <div className="max-w-10xl mx-auto px-4 lg:px-12 relative z-10">
           <div className="text-center mb-16">
-            <p className="text-blue-500 text-sm font-semibold mb-2">
-              Built for Performance-Driven Traders
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold">
-              Multiple Funding Paths
-              <br />
-              One Powerful Platform.
-            </h2>
+            <ScrollReveal direction="fade" delay={0}>
+              <p className="text-blue-500 text-sm font-semibold mb-2">
+                Built for Performance-Driven Traders
+              </p>
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={100}>
+              <h2 className="text-4xl md:text-5xl font-bold">
+                Multiple Funding Paths
+                <br />
+                One Powerful Platform.
+              </h2>
+            </ScrollReveal>
           </div>
 
           <div className="relative w-full max-w-[1100px] xl:max-w-[1200px] mx-auto">
             <div className="flex justify-center items-center">
               {/* Center Mobile Image Container */}
-              <div className="relative inline-block">
-                {/* Mobile Image - Responsive sizing */}
-                <img
-                  src={Mobile}
-                  alt="Trading Platform Mobile App"
-                  className="w-[350px] lg:w-[550px] xl:w-[650px] h-auto object-contain drop-shadow-2xl relative z-10"
-                />
+              <ScrollReveal direction="fade" delay={200}>
+                <div className="relative inline-block">
+                  {/* Mobile Image - Responsive sizing */}
+                  <img
+                    src={Mobile}
+                    alt="Trading Platform Mobile App"
+                    className="w-[350px] lg:w-[550px] xl:w-[650px] h-auto object-contain drop-shadow-2xl relative z-10"
+                  />
 
-                {/* Top Left Icon - Positioned on circle */}
-                <div className="absolute top-[15%] left-[8%] z-20 hidden lg:block animate-float">
-                  <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
-                    <img
-                      src={features[0].icon}
-                      alt=""
-                      className="w-6 h-6 xl:w-7 xl:h-7"
-                    />
+                  {/* Top Left Icon - Positioned on circle */}
+                  <div className="absolute top-[15%] left-[8%] z-20 hidden lg:block animate-float">
+                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
+                      <img
+                        src={features[0].icon}
+                        alt=""
+                        className="w-6 h-6 xl:w-7 xl:h-7"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Bottom Left Icon - Positioned on circle */}
+                  <div className="absolute bottom-[25%] left-[8%] z-20 hidden lg:block animate-float-delayed-1">
+                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
+                      <img
+                        src={features[1].icon}
+                        alt=""
+                        className="w-6 h-6 xl:w-7 xl:h-7"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Top Right Icon - Positioned on circle */}
+                  <div className="absolute top-[15%] right-[8%] z-20 hidden lg:block animate-float-delayed-2">
+                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
+                      <img
+                        src={features[2].icon}
+                        alt=""
+                        className="w-6 h-6 xl:w-7 xl:h-7"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Bottom Right Icon - Positioned on circle */}
+                  <div className="absolute bottom-[25%] right-[8%] z-20 hidden lg:block animate-float-delayed-3">
+                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
+                      <img
+                        src={features[3].icon}
+                        alt=""
+                        className="w-6 h-6 xl:w-7 xl:h-7"
+                      />
+                    </div>
                   </div>
                 </div>
-
-                {/* Bottom Left Icon - Positioned on circle */}
-                <div className="absolute bottom-[25%] left-[8%] z-20 hidden lg:block animate-float-delayed-1">
-                  <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
-                    <img
-                      src={features[1].icon}
-                      alt=""
-                      className="w-6 h-6 xl:w-7 xl:h-7"
-                    />
-                  </div>
-                </div>
-
-                {/* Top Right Icon - Positioned on circle */}
-                <div className="absolute top-[15%] right-[8%] z-20 hidden lg:block animate-float-delayed-2">
-                  <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
-                    <img
-                      src={features[2].icon}
-                      alt=""
-                      className="w-6 h-6 xl:w-7 xl:h-7"
-                    />
-                  </div>
-                </div>
-
-                {/* Bottom Right Icon - Positioned on circle */}
-                <div className="absolute bottom-[25%] right-[8%] z-20 hidden lg:block animate-float-delayed-3">
-                  <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
-                    <img
-                      src={features[3].icon}
-                      alt=""
-                      className="w-6 h-6 xl:w-7 xl:h-7"
-                    />
-                  </div>
-                </div>
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* Feature Text - Positioned much closer to icons */}

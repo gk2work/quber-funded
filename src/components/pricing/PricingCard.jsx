@@ -37,17 +37,26 @@ export default function PricingCard({
   };
 
   return (
-    <div className="relative pt-6">
+    <div
+      className={`
+        relative pt-6 transition-all duration-300
+        ${active || isHovered ? "scale-[1.05]" : "scale-100"}
+      `}
+      onClick={handleClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Top Label Tab */}
       <div
         className={`
           absolute top-0 left-1/2 -translate-x-1/2 z-10
-          px-12 py-1 rounded-t-3xl text-sm font-semibold text-white
-          ${active ? "bg-blue-600" : "bg-gray-800"}
+          px-12 py-1 rounded-t-3xl text-sm font-semibold text-white transition-all duration-300
+          ${active || isHovered ? "bg-blue-600 shadow-2xl" : "bg-gray-800 shadow-lg"}
         `}
         style={{
           borderTopLeftRadius: "1.5rem",
           borderTopRightRadius: "1.5rem",
+          zIndex: 1,
         }}
       >
         {title}
@@ -55,13 +64,11 @@ export default function PricingCard({
 
       {/* Card Container with Border */}
       <div
-        onClick={handleClick}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         className={`
           relative rounded-3xl transition-all duration-300 cursor-pointer overflow-hidden
-          ${active || isHovered ? "shadow-2xl scale-[1.05]" : "shadow-lg"}
+          ${active || isHovered ? "shadow-2xl" : "shadow-lg"}
         `}
+        style={{ zIndex: 2 }}
       >
         {/* Ripple Effect */}
         {ripples.map((ripple) => (

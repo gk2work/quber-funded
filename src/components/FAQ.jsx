@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ScrollReveal from "./shared/ScrollReveal";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -45,36 +46,43 @@ export default function FAQ() {
     <section id="faqs" className="bg-[#06090f] text-white py-20">
       <div className="max-w-10xl mx-auto px-8 lg:px-12">
         <div className="text-center mb-12">
-          <p className="text-blue-500 text-sm font-semibold mb-2">
-            Popular questions
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-gray-400 mt-2">
-            We accept 100+ currencies around the world
-          </p>
+          <ScrollReveal direction="fade" delay={0}>
+            <p className="text-blue-500 text-sm font-semibold mb-2">
+              Popular questions
+            </p>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={100}>
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Frequently Asked Questions
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={200}>
+            <p className="text-gray-400 mt-2">
+              We accept 100+ currencies around the world
+            </p>
+          </ScrollReveal>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-gray-800 rounded-lg overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-900/50 transition-colors"
-              >
-                <span className="font-semibold text-lg">{faq.question}</span>
-                <span className="text-blue-500 text-2xl cursor-pointer">
-                  {openIndex === index ? "−" : "+"}
-                </span>
-              </button>
-              {openIndex === index && (
-                <div className="px-6 pb-6 text-gray-400">{faq.answer}</div>
-              )}
-            </div>
+            <ScrollReveal key={index} direction="up" delay={300 + index * 50}>
+              <div className="border border-gray-800 rounded-lg overflow-hidden">
+                <button
+                  onClick={() =>
+                    setOpenIndex(openIndex === index ? null : index)
+                  }
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-900/50 transition-colors"
+                >
+                  <span className="font-semibold text-lg">{faq.question}</span>
+                  <span className="text-blue-500 text-2xl cursor-pointer">
+                    {openIndex === index ? "−" : "+"}
+                  </span>
+                </button>
+                {openIndex === index && (
+                  <div className="px-6 pb-6 text-gray-400">{faq.answer}</div>
+                )}
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
