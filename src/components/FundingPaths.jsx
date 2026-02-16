@@ -96,7 +96,7 @@ export default function FundingPaths() {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="max-w-8xl mx-auto px-4 lg:px-12 relative z-10">
+        <div className="max-w-[88rem] mx-auto px-4 lg:px-12 relative z-10">
           <div className="text-center mb-16">
             <ScrollReveal direction="fade" delay={0}>
               <p className="text-blue-500 text-sm font-semibold mb-2">

@@ -27,7 +27,7 @@ export default function CapitalAllocation() {
       id="about"
       className="bg-[#06090f] text-white py-20 relative overflow-hidden"
     >
-      <div className="max-w-8xl mx-auto px-8 lg:px-12">
+      <div className="max-w-[88rem] mx-auto px-8 lg:px-12">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left - Crypto Cards Image */}
           <ScrollReveal direction="left" delay={0}>

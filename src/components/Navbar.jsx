@@ -50,7 +50,7 @@ export default function Navbar() {
 
   return (
     <header className="bg-white sticky top-0 z-50 border-b border-gray-200">
-      <div className="max-w-8xl mx-auto px-8 lg:px-12 py-4 flex items-center justify-between">
+      <div className="max-w-[88rem] mx-auto px-8 lg:px-12 py-4 flex items-center justify-between">
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-2 font-semibold text-lg">
           <img
@@ -64,7 +64,7 @@ export default function Navbar() {
         </Link>
 
         {/* DESKTOP MENU */}
-        <nav className="hidden md:flex gap-8 text-sm text-gray-600">
+        <nav className="hidden md:flex gap-6 lg:gap-8 text-sm lg:text-base text-gray-600">
           {menu.map((item) => (
             <button
               key={item.name}
@@ -84,13 +84,13 @@ export default function Navbar() {
         </nav>
 
         {/* RIGHT ACTIONS */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 lg:gap-4">
           {/* Desktop buttons */}
-          <button className="hidden md:block text-gray-700 font-medium cursor-pointer hover:text-gray-900">
+          <button className="hidden md:block text-sm lg:text-base text-gray-700 font-medium cursor-pointer hover:text-gray-900 transition-colors">
             Register
           </button>
 
-          <button className="hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 font-medium transition-colors cursor-pointer">
+          <button className="hidden md:block text-sm lg:text-base bg-blue-600 text-white px-5 lg:px-6 py-2 lg:py-2.5 rounded-full hover:bg-blue-700 font-medium transition-colors cursor-pointer">
             Login
           </button>
 
@@ -107,26 +107,31 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden bg-white border-t">
-          <div className="px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-white border-t shadow-lg">
+          <div className="px-6 py-4 flex flex-col gap-3">
             {menu.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleMenuClick(item)}
-                className={`text-left font-medium
-                  ${active === item.name ? "text-gray-900" : "text-gray-600"}
+                className={`
+                  text-left font-medium text-base py-2 px-3 rounded-lg transition-all
+                  ${
+                    active === item.name
+                      ? "text-blue-600 bg-blue-50"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50 active:bg-blue-100"
+                  }
                 `}
               >
                 {item.name}
               </button>
             ))}
 
-            <hr />
+            <hr className="my-2" />
 
-            <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+            <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 border-2 border-blue-600 px-8 py-3 rounded-full font-semibold text-base justify-center transition-colors">
               Register
             </RippleButton>
-            <RippleButton className="bg-blue-600 text-white hover:bg-blue-400 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+            <RippleButton className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-semibold text-base justify-center transition-colors">
               Login
             </RippleButton>
           </div>

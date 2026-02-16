@@ -1,7 +1,7 @@
 export default function TermsOfService() {
   return (
     <section className="bg-[#06090f] text-white min-h-screen py-20">
-      <div className="max-w-8xl mx-auto px-8 lg:px-12">
+      <div className="max-w-[88rem] mx-auto px-8 lg:px-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-2">
           Terms of Service & Operational Agreement
         </h1>

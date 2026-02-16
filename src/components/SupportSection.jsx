@@ -23,7 +23,7 @@ export default function SupportSection() {
 
   return (
     <section className="bg-[#06090f] text-white py-16">
-      <div className="max-w-8xl mx-auto px-8 lg:px-12">
+      <div className="max-w-[88rem] mx-auto px-8 lg:px-12">
         <ScrollReveal direction="fade" delay={0}>
           <p className="text-center text-blue-500 text-sm font-semibold mb-4">
             Always by your side

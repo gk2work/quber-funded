@@ -9,7 +9,7 @@ export default function Hero() {
 
       {/* CONTENT */}
       <div
-        className="relative max-w-8xl mx-auto px-8 lg:px-12 pt-24 pb-28 grid md:grid-cols-2 gap-10 items-center
+        className="relative max-w-12xl mx-auto px-8 lg:px-12 pt-24 pb-28 grid md:grid-cols-2 gap-10 items-center
         bg-none
         md:bg-[url('/src/assets/images/desktop_monitor.svg')]
         md:bg-cover
