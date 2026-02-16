@@ -58,6 +58,21 @@ export default function PricingSection() {
         "Unlimited Trading Period",
       ],
     },
+    {
+      id: "pro+",
+      title: "Pro+",
+      price: "35,000",
+      fee: "1999",
+      originalFee: "2999",
+      features: [
+        "No challenge, No Consistency",
+        "10% Max drawdown",
+        "5 % Daily drawdown",
+        "70% Profit Split",
+        "Instant Payout , Weekly Thereafter.",
+        "Unlimited Trading Period",
+      ],
+    },
   ];
 
   const [selectedPlan, setSelectedPlan] = useState("");
@@ -93,7 +108,7 @@ export default function PricingSection() {
         </p>
 
         {/* CARDS */}
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
+        <div className="mt-16 grid md:grid-cols-4 gap-8">
           {plans.map((p) => (
             <PricingCard
               key={p.id}

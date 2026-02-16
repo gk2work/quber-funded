@@ -150,7 +150,7 @@ export default function PricingCard({
               ${
                 active
                   ? "bg-blue-600 text-white hover:bg-blue-700"
-                  : "border-2 border-gray-800 text-gray-800 hover:bg-gray-50"
+                  : "border-2 border-gray-800 text-gray-800 hover:bg-blue-600 hover:text-white hover:outline-none hover:border-blue-600"
               }
             `}
           >
