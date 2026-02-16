@@ -3,6 +3,7 @@ import {
   RiskControl,
   LiveFunded,
   GrowthScale,
+  Mobile,
 } from "../assets/images/index";
 
 export default function FundingPaths() {
@@ -12,34 +13,43 @@ export default function FundingPaths() {
       description:
         "Clear price targets, defined drawdown limits, and transparent rules designed to test real trading discipline.",
       icon: Hash,
-      position: "left",
+      position: "top-left",
     },
     {
       title: "Live Funded Stage",
       description:
         "Move from evaluation to real capital allocation and start earning on performance — not promises.",
       icon: LiveFunded,
-      position: "left",
+      position: "bottom-left",
     },
     {
       title: "Risk Control System",
       description:
         "Advanced risk parameters that protect capital while allowing serious traders to grow consistently.",
       icon: RiskControl,
-      position: "right",
+      position: "top-right",
     },
     {
       title: "Growth & Scaling",
       description:
         "Unlock higher funding tiers and increased capital as you demonstrate stable, responsible performance.",
       icon: GrowthScale,
-      position: "right",
+      position: "bottom-right",
     },
   ];
 
   return (
-    <section id="benefits" className="bg-[#06090f] text-white py-20">
-      <div className="max-w-10xl mx-auto px-8 lg:px-12">
+    <section
+      id="benefits"
+      className="bg-[#06090f] text-white py-20 relative overflow-hidden"
+    >
+      {/* Background circles */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-10xl mx-auto px-4 lg:px-12 relative z-10">
         <div className="text-center mb-16">
           <p className="text-blue-500 text-sm font-semibold mb-2">
             Built for Performance-Driven Traders
@@ -51,129 +61,122 @@ export default function FundingPaths() {
           </h2>
         </div>
 
-        <div className="relative">
-          <div className="grid md:grid-cols-3 gap-8 items-center">
-            {/* Left Features */}
-            <div className="space-y-12">
-              {features
-                .filter((f) => f.position === "left")
-                .map((feature, index) => (
-                  <div key={index} className="text-right">
-                    <div className="flex items-start justify-end gap-4">
-                      <div>
-                        <h3 className="text-xl font-bold mb-2">
-                          {feature.title}
-                        </h3>
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </div>
-                      <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
-                        <img src={feature.icon} alt="" />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </div>
+        <div className="relative w-full max-w-[1100px] xl:max-w-[1200px] mx-auto">
+          <div className="flex justify-center items-center">
+            {/* Center Mobile Image Container */}
+            <div className="relative inline-block">
+              {/* Mobile Image - Responsive sizing */}
+              <img
+                src={Mobile}
+                alt="Trading Platform Mobile App"
+                className="w-[350px] lg:w-[450px] xl:w-[500px] h-auto object-contain drop-shadow-2xl relative z-10"
+              />
 
-            {/* Center - Mobile Mockup */}
-            <div className="flex justify-center">
-              <div className="relative w-72 h-[580px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl border-4 border-gray-700">
-                <div className="bg-[#0a1628] h-full rounded-[2.5rem] p-6 overflow-hidden">
-                  {/* Status Bar */}
-                  <div className="flex justify-between items-center mb-6 text-xs text-gray-400">
-                    <span>9:41</span>
-                    <div className="flex gap-1">
-                      <span>📶</span>
-                      <span>📡</span>
-                      <span>🔋</span>
-                    </div>
-                  </div>
+              {/* Top Left Icon - Positioned on circle */}
+              <div className="absolute top-[15%] left-[8%] z-20 hidden lg:block">
+                <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/50">
+                  <img
+                    src={features[0].icon}
+                    alt=""
+                    className="w-6 h-6 xl:w-7 xl:h-7"
+                  />
+                </div>
+              </div>
 
-                  {/* Exchange Header */}
-                  <div className="text-center mb-6">
-                    <p className="text-gray-400 text-sm mb-4">Exchange</p>
+              {/* Bottom Left Icon - Positioned on circle */}
+              <div className="absolute bottom-[25%] left-[8%] z-20 hidden lg:block">
+                <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/50">
+                  <img
+                    src={features[1].icon}
+                    alt=""
+                    className="w-6 h-6 xl:w-7 xl:h-7"
+                  />
+                </div>
+              </div>
 
-                    {/* Crypto Cards */}
-                    <div className="space-y-3">
-                      <div className="bg-gray-800/50 p-4 rounded-xl flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
-                          <span className="text-white font-semibold">ETH</span>
-                        </div>
-                        <span className="text-xs text-gray-500">••••••</span>
-                      </div>
+              {/* Top Right Icon - Positioned on circle */}
+              <div className="absolute top-[15%] right-[8%] z-20 hidden lg:block">
+                <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/50">
+                  <img
+                    src={features[2].icon}
+                    alt=""
+                    className="w-6 h-6 xl:w-7 xl:h-7"
+                  />
+                </div>
+              </div>
 
-                      <div className="bg-gray-800/50 p-4 rounded-xl flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-orange-500 rounded-full"></div>
-                          <span className="text-white font-semibold">BTC</span>
-                        </div>
-                        <span className="text-xs text-gray-500">••••••</span>
-                      </div>
-
-                      <div className="bg-gray-800/50 p-4 rounded-xl flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-purple-500 rounded-full"></div>
-                          <span className="text-white font-semibold">
-                            Ethereum
-                          </span>
-                        </div>
-                        <span className="text-xs text-gray-500">••••••</span>
-                      </div>
-                    </div>
-
-                    {/* Portfolio Value */}
-                    <div className="mt-6 bg-gray-800/30 p-4 rounded-xl">
-                      <div className="flex items-center justify-between">
-                        <span className="text-yellow-500 text-2xl">💰</span>
-                        <div className="text-right">
-                          <p className="text-white font-bold">0.010%</p>
-                          <p className="text-xs text-gray-500">Change rate</p>
-                        </div>
-                        <span className="text-gray-400">$**</span>
-                      </div>
-                    </div>
-
-                    {/* Terms Link */}
-                    <p className="text-xs text-blue-400 mt-4">
-                      Click here for Terms & Conditions.
-                      <br />
-                      For this transaction fee will be taken
-                    </p>
-
-                    {/* Exchange Button */}
-                    <button className="w-full bg-blue-600 text-white py-3 rounded-xl mt-4 font-semibold">
-                      Exchange now
-                    </button>
-                  </div>
+              {/* Bottom Right Icon - Positioned on circle */}
+              <div className="absolute bottom-[25%] right-[8%] z-20 hidden lg:block">
+                <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/50">
+                  <img
+                    src={features[3].icon}
+                    alt=""
+                    className="w-6 h-6 xl:w-7 xl:h-7"
+                  />
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Right Features */}
-            <div className="space-y-12">
-              {features
-                .filter((f) => f.position === "right")
-                .map((feature, index) => (
-                  <div key={index}>
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
-                        <img src={feature.icon} alt="" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold mb-2">
-                          {feature.title}
-                        </h3>
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+          {/* Feature Text - Responsive positioning closer to icons */}
+          <div className="hidden lg:block">
+            {/* Top Left Text */}
+            <div className="absolute top-[10%] left-0 w-[180px] xl:w-[220px] text-right pr-2 xl:pr-4">
+              <h3 className="text-base xl:text-lg font-bold mb-1 xl:mb-2">
+                {features[0].title}
+              </h3>
+              <p className="text-gray-400 text-[11px] xl:text-xs leading-relaxed">
+                {features[0].description}
+              </p>
+            </div>
+
+            {/* Bottom Left Text */}
+            <div className="absolute bottom-[20%] left-0 w-[180px] xl:w-[220px] text-right pr-2 xl:pr-4">
+              <h3 className="text-base xl:text-lg font-bold mb-1 xl:mb-2">
+                {features[1].title}
+              </h3>
+              <p className="text-gray-400 text-[11px] xl:text-xs leading-relaxed">
+                {features[1].description}
+              </p>
+            </div>
+
+            {/* Top Right Text */}
+            <div className="absolute top-[10%] right-0 w-[180px] xl:w-[220px] text-left pl-2 xl:pl-4">
+              <h3 className="text-base xl:text-lg font-bold mb-1 xl:mb-2">
+                {features[2].title}
+              </h3>
+              <p className="text-gray-400 text-[11px] xl:text-xs leading-relaxed">
+                {features[2].description}
+              </p>
+            </div>
+
+            {/* Bottom Right Text */}
+            <div className="absolute bottom-[20%] right-0 w-[180px] xl:w-[220px] text-left pl-2 xl:pl-4">
+              <h3 className="text-base xl:text-lg font-bold mb-1 xl:mb-2">
+                {features[3].title}
+              </h3>
+              <p className="text-gray-400 text-[11px] xl:text-xs leading-relaxed">
+                {features[3].description}
+              </p>
             </div>
           </div>
+        </div>
+
+        {/* Mobile View - Features Below */}
+        <div className="lg:hidden mt-12 space-y-8">
+          {features.map((feature, index) => (
+            <div key={index} className="flex items-start gap-4">
+              <div className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/50">
+                <img src={feature.icon} alt="" className="w-7 h-7" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

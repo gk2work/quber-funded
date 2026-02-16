@@ -19,6 +19,9 @@ import Academy from "./academy.svg";
 import CapitalAllocate from "./capital.svg";
 import ExpertTrade from "./expert.svg";
 import CapitalProtection from "./capital-protection.svg";
+import Mobile from "./mobile.png";
+import MobileWithCircle from "./mobile-with-circle.png";
+
 export {
   QuberLogo,
   DesktopMonitor,
@@ -41,4 +44,6 @@ export {
   CapitalAllocate,
   CapitalProtection,
   ExpertTrade,
+  Mobile,
+  MobileWithCircle,
 };

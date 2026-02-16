@@ -93,7 +93,7 @@ export default function AboutUs() {
               Leverage our advanced proprietary platform and experience the
               pinnacle of execution power.
             </p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-colors cursor-pointer">
               Get Funded Now
             </button>
           </div>

@@ -21,19 +21,22 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
-                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700"
-              >
-                <span>f</span>
-              </a>
-              <a
-                href="#"
+                href="https://www.instagram.com/quberfunded?igsh=MXRhaTM1MnFkdWUwMA=="
+                target="_blank"
                 className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700"
               >
                 <span>in</span>
               </a>
               <a
                 href="#"
+                target="_blank"
+                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700"
+              >
+                <span>in</span>
+              </a>
+              <a
+                href="#"
+                target="_blank"
                 className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700"
               >
                 <span>X</span>

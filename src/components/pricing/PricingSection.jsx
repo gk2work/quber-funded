@@ -82,7 +82,7 @@ export default function PricingSection() {
       id="pricing"
       className="bg-gradient-to-b from-[#f6f8fc] to-[#e9eef8] py-24"
     >
-      <div className="max-w-10xl mx-auto px-8 lg:px-12 text-center">
+      <div className="max-w-12xl mx-auto px-8 lg:px-12 text-center">
         {/* BADGES */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {badges.map(({ text, icon }, i) => (
@@ -98,8 +98,9 @@ export default function PricingSection() {
 
         {/* HEADING */}
         <h2 className="text-4xl md:text-7xl font-semibold text-gray-900">
-          <span className="text-blue-600">Choose</span> your <br />
-          trading account
+          <span className="text-blue-600">Choose</span> your trading account
+          {/* <br /> */}
+          
         </h2>
 
         <p className="mt-5 text-gray-600 max-w-2xl mx-auto">
@@ -108,7 +109,7 @@ export default function PricingSection() {
         </p>
 
         {/* CARDS */}
-        <div className="mt-16 grid md:grid-cols-4 gap-8">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {plans.map((p) => (
             <PricingCard
               key={p.id}
@@ -196,9 +197,9 @@ export default function PricingSection() {
           </div>
 
           {/* RIGHT BUTTON */}
-          <RippleButton className="bg-blue-600 text-white hover:bg-blue-400 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+          <button className="bg-blue-600 text-white px-10 py-3 rounded-full hover:bg-blue-700 transition-colors whitespace-nowrap font-medium cursor-pointer">
             Call Now
-          </RippleButton>
+          </button>
         </div>
       </div>
     </section>

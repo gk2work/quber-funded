@@ -12,6 +12,7 @@ export default function PricingCard({
 }) {
   const active = selected;
   const [ripples, setRipples] = useState([]);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = (e) => {
     const card = e.currentTarget;
@@ -42,9 +43,7 @@ export default function PricingCard({
         className={`
           absolute top-0 left-1/2 -translate-x-1/2 z-10
           px-12 py-1 rounded-t-3xl text-sm font-semibold text-white
-          ${
-            active ? "bg-blue-600" : highlighted ? "bg-gray-800" : "bg-gray-600"
-          }
+          ${active ? "bg-blue-600" : "bg-gray-800"}
         `}
         style={{
           borderTopLeftRadius: "1.5rem",
@@ -57,9 +56,11 @@ export default function PricingCard({
       {/* Card Container with Border */}
       <div
         onClick={handleClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         className={`
           relative rounded-3xl transition-all duration-300 cursor-pointer overflow-hidden
-          ${active ? "shadow-2xl scale-[1.02]" : "hover:shadow-lg"}
+          ${active || isHovered ? "shadow-2xl scale-[1.05]" : "shadow-lg"}
         `}
       >
         {/* Ripple Effect */}
@@ -146,11 +147,13 @@ export default function PricingCard({
           {/* BUTTON */}
           <button
             className={`
-              mt-8 w-full py-3 rounded-full font-medium transition
+              mt-8 w-full py-3 rounded-full font-medium transition-colors cursor-pointer
               ${
                 active
                   ? "bg-blue-600 text-white hover:bg-blue-700"
-                  : "border-2 border-gray-800 text-gray-800 hover:bg-blue-600 hover:text-white hover:outline-none hover:border-blue-600"
+                  : isHovered
+                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    : "border-2 border-gray-800 text-gray-800 hover:bg-gray-100"
               }
             `}
           >

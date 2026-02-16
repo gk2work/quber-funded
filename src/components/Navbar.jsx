@@ -90,7 +90,7 @@ export default function Navbar() {
             Register
           </button>
 
-          <button className="hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-full cursor-pointer hover:bg-blue-700 font-medium">
+          <button className="hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 font-medium transition-colors cursor-pointer">
             Login
           </button>
 
