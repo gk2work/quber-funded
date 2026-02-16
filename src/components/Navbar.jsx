@@ -12,7 +12,7 @@ export default function Navbar() {
   const menu = [
     { name: "Features", id: "pricing", type: "scroll" },
     { name: "Benefits", id: "benefits", type: "scroll" },
-    { name: "About us", path: "/about-us", type: "page" },
+    { name: "About", path: "/about-us", type: "page" },
     { name: "Why Quber", id: "why-quber", type: "scroll" },
     { name: "FAQs", id: "faqs", type: "scroll" },
   ];

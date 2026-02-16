@@ -21,6 +21,9 @@ import ExpertTrade from "./expert.svg";
 import CapitalProtection from "./capital-protection.svg";
 import Mobile from "./mobile.png";
 import MobileWithCircle from "./mobile-with-circle.png";
+import PrivacyPolicyHeaderBg from "./privacy-header.png";
+import TNCHeaderBg from "./tnc-header-bg.png";
+import AboutUsHeaderBg from "./about-us-header.png";
 
 export {
   QuberLogo,
@@ -46,4 +49,7 @@ export {
   ExpertTrade,
   Mobile,
   MobileWithCircle,
+  PrivacyPolicyHeaderBg,
+  TNCHeaderBg,
+  AboutUsHeaderBg,
 };
