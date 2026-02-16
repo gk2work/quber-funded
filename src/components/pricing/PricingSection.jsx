@@ -1,8 +1,7 @@
 import { useState } from "react";
 import PricingCard from "./PricingCard";
-import FeatureItem from "./FeatureItem";
 import { Cash, Circle, Hand } from "../../assets/images";
-import RippleButton from "../ui/RippleButton";
+import ScrollReveal from "../shared/ScrollReveal";
 
 export default function PricingSection() {
   const badges = [
@@ -100,7 +99,6 @@ export default function PricingSection() {
         <h2 className="text-4xl md:text-7xl font-semibold text-gray-900">
           <span className="text-blue-600">Choose</span> your trading account
           {/* <br /> */}
-          
         </h2>
 
         <p className="mt-5 text-gray-600 max-w-2xl mx-auto">

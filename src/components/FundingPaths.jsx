@@ -167,41 +167,41 @@ export default function FundingPaths() {
             {/* Feature Text - Positioned much closer to icons */}
             <div className="hidden lg:block">
               {/* Top Left Text */}
-              <div className="absolute top-[12%] left-[50px] xl:left-[80px] w-[150px] xl:w-[190px] text-right">
-                <h3 className="text-sm xl:text-base font-bold mb-1">
+              <div className="absolute top-[12%] left-[40px] xl:left-[50px] w-[200px] xl:w-[250px] text-right">
+                <h3 className="lg:text-[18px] xl:text-[22px] font-bold mb-1">
                   {features[0].title}
                 </h3>
-                <p className="text-gray-400 text-[10px] xl:text-[11px] leading-relaxed">
+                <p className="text-gray-400 lg:text-[14px] xl:text-[16px] leading-relaxed">
                   {features[0].description}
                 </p>
               </div>
 
               {/* Bottom Left Text */}
-              <div className="absolute bottom-[22%] left-[50px] xl:left-[80px] w-[150px] xl:w-[190px] text-right">
-                <h3 className="text-sm xl:text-base font-bold mb-1">
+              <div className="absolute bottom-[22%] left-[40px] xl:left-[50px] w-[200px] xl:w-[250px] text-right">
+                <h3 className="lg:text-[18px] xl:text-[22px] font-bold mb-1">
                   {features[1].title}
                 </h3>
-                <p className="text-gray-400 text-[10px] xl:text-[11px] leading-relaxed">
+                <p className="text-gray-400 lg:text-[14px] xl:text-[16px] leading-relaxed">
                   {features[1].description}
                 </p>
               </div>
 
               {/* Top Right Text */}
-              <div className="absolute top-[12%] right-[50px] xl:right-[80px] w-[150px] xl:w-[190px] text-left">
-                <h3 className="text-sm xl:text-base font-bold mb-1">
+              <div className="absolute top-[12%] right-[40px] xl:right-[50px] w-[150px] xl:w-[250px] text-left">
+                <h3 className="lg:text-[18px] xl:text-[22px] font-bold mb-1">
                   {features[2].title}
                 </h3>
-                <p className="text-gray-400 text-[10px] xl:text-[11px] leading-relaxed">
+                <p className="text-gray-400 lg:text-[14px] xl:text-[16px] leading-relaxed">
                   {features[2].description}
                 </p>
               </div>
 
               {/* Bottom Right Text */}
-              <div className="absolute bottom-[22%] right-[50px] xl:right-[80px] w-[150px] xl:w-[190px] text-left">
-                <h3 className="text-sm xl:text-base font-bold mb-1">
+              <div className="absolute bottom-[22%] right-[40px] xl:right-[50px] w-[150px] xl:w-[250px] text-left">
+                <h3 className="lg:text-[20px] xl:text-[24px] font-bold mb-1">
                   {features[3].title}
                 </h3>
-                <p className="text-gray-400 text-[10px] xl:text-[11px] leading-relaxed">
+                <p className="text-gray-400 lg:text-[14px] xl:text-[16px] leading-relaxed">
                   {features[3].description}
                 </p>
               </div>

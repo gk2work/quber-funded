@@ -34,13 +34,6 @@ export default function Footer() {
               >
                 <span>in</span>
               </a>
-              <a
-                href="#"
-                target="_blank"
-                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700"
-              >
-                <span>X</span>
-              </a>
             </div>
           </div>
 

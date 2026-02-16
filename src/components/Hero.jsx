@@ -1,4 +1,5 @@
 import RippleButton from "./ui/RippleButton";
+import ScrollReveal from "./shared/ScrollReveal";
 
 export default function Hero() {
   return (
@@ -17,24 +18,32 @@ export default function Hero() {
       >
         {/* TEXT */}
         <div className="z-10">
-          <div className="inline-block mb-6 px-4 py-2 rounded-full bg-blue-900/40 border border-blue-700 text-sm">
-            Zero Competition. No Challenge
-          </div>
+          <ScrollReveal direction="fade" delay={100}>
+            <div className="inline-block mb-6 px-4 py-2 rounded-full bg-blue-900/40 border border-blue-700 text-sm">
+              Zero Competition. No Challenge
+            </div>
+          </ScrollReveal>
 
-          <h1 className="text-4xl md:text-[64px] font-semibold leading-[1.05]">
-            Capital Without <br />
-            Competition. Just <br />
-            <span className="text-blue-500">Pure Performance.</span>
-          </h1>
+          <ScrollReveal direction="up" delay={200}>
+            <h1 className="text-4xl md:text-[64px] font-semibold leading-[1.05]">
+              Capital Without <br />
+              Competition. Just <br />
+              <span className="text-blue-500">Pure Performance.</span>
+            </h1>
+          </ScrollReveal>
 
-          <p className="mt-6 text-gray-300 max-w-lg">
-            Enter with $1000 and trade firm capital under clear performance
-            guidelines. Scale up as you prove consistency.
-          </p>
+          <ScrollReveal direction="up" delay={300}>
+            <p className="mt-6 text-gray-300 max-w-lg">
+              Enter with $1000 and trade firm capital under clear performance
+              guidelines. Scale up as you prove consistency.
+            </p>
+          </ScrollReveal>
 
-          <RippleButton className="mt-8 bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
-            Get Funded →
-          </RippleButton>
+          <ScrollReveal direction="up" delay={400}>
+            <RippleButton className="mt-8 bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+              Get Funded →
+            </RippleButton>
+          </ScrollReveal>
         </div>
 
         {/* spacer column */}
