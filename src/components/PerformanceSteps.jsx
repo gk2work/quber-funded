@@ -1,3 +1,5 @@
+import RippleButton from "./ui/RippleButton";
+
 export default function PerformanceSteps() {
   const steps = [
     {
@@ -45,9 +47,11 @@ export default function PerformanceSteps() {
               objectives, respect the risk model, and earn real payouts backed
               by structured capital allocation.
             </p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-colors flex items-center gap-2 w-fit">
-              Get Funded with Quber →
-            </button>
+            <div>
+              <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+                Get Funded with Quber →
+              </RippleButton>
+            </div>
           </div>
         </div>
 

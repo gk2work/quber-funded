@@ -1,3 +1,5 @@
+import RippleButton from "./ui/RippleButton";
+
 export default function Hero() {
   return (
     <section className="relative bg-[#06090f] text-white overflow-hidden">
@@ -30,9 +32,9 @@ export default function Hero() {
             guidelines. Scale up as you prove consistency.
           </p>
 
-          <button className="mt-8 bg-blue-600 hover:bg-blue-700 px-7 py-3 rounded-full">
+          <RippleButton className="mt-8 bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
             Get Funded →
-          </button>
+          </RippleButton>
         </div>
 
         {/* spacer column */}

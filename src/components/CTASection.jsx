@@ -1,3 +1,5 @@
+import RippleButton from "./ui/RippleButton";
+
 export default function CTASection() {
   return (
     <section className="bg-[#06090f] py-16">
@@ -13,9 +15,9 @@ export default function CTASection() {
                 capital with transparent rules and scalable payouts.
               </p>
             </div>
-            <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg whitespace-nowrap transition-colors flex items-center gap-2">
+            <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
               Get Funded →
-            </button>
+            </RippleButton>
           </div>
         </div>
       </div>

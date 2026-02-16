@@ -1,14 +1,8 @@
 import { useState } from "react";
 import PricingCard from "./PricingCard";
 import FeatureItem from "./FeatureItem";
-import {
-  Cash,
-  Circle,
-  Hand,
-  Integration,
-  Users,
-  Contact,
-} from "../../assets/images";
+import { Cash, Circle, Hand } from "../../assets/images";
+import RippleButton from "../ui/RippleButton";
 
 export default function PricingSection() {
   const badges = [
@@ -66,7 +60,7 @@ export default function PricingSection() {
     },
   ];
 
-  const [selectedPlan, setSelectedPlan] = useState("recommended");
+  const [selectedPlan, setSelectedPlan] = useState("");
 
   return (
     <section
@@ -187,9 +181,9 @@ export default function PricingSection() {
           </div>
 
           {/* RIGHT BUTTON */}
-          <button className="bg-blue-600 text-white px-10 py-3 rounded-full hover:bg-blue-700 transition whitespace-nowrap">
+          <RippleButton className="bg-blue-600 text-white hover:bg-blue-400 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
             Call Now
-          </button>
+          </RippleButton>
         </div>
       </div>
     </section>

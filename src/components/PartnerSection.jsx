@@ -1,3 +1,5 @@
+import RippleButton from "./ui/RippleButton";
+
 export default function PartnerSection() {
   return (
     <section className="bg-gray-50 py-16">
@@ -38,9 +40,9 @@ export default function PartnerSection() {
               </div>
             </div>
             <div className="flex justify-end">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors">
+              <RippleButton className="bg-blue-600 text-white hover:bg-blue-400 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
                 Call Now
-              </button>
+              </RippleButton>
             </div>
           </div>
         </div>

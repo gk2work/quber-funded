@@ -1,3 +1,5 @@
+import RippleButton from "./ui/RippleButton";
+
 export default function ScaleCTA() {
   return (
     <section className="bg-[#06090f] text-white py-20">
@@ -12,12 +14,12 @@ export default function ScaleCTA() {
           designed for performance, not gimmicks.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="border border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-full font-semibold transition-colors">
+          <RippleButton className="border border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-full font-semibold transition-colors">
             Contact us!
-          </button>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-colors flex items-center gap-2 justify-center">
-            Get Funded →
-          </button>
+          </RippleButton>
+          <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+            Get Funded→
+          </RippleButton>
         </div>
       </div>
     </section>

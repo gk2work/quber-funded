@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { QuberLogo } from "../assets/images";
+import RippleButton from "./ui/RippleButton";
 
 export default function Navbar() {
   const [active, setActive] = useState("Features");
@@ -122,11 +123,12 @@ export default function Navbar() {
 
             <hr />
 
-            <button className="py-2 text-gray-700 font-medium">Register</button>
-
-            <button className="bg-blue-600 text-white py-2 rounded-full">
+            <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+              Register
+            </RippleButton>
+            <RippleButton className="bg-blue-600 text-white hover:bg-blue-400 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
               Login
-            </button>
+            </RippleButton>
           </div>
         </div>
       )}
