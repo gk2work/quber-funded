@@ -26,7 +26,7 @@ export default function Hero() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={200}>
-              <h1 className="text-4xl md:text-[64px] font-semibold leading-[1.05]">
+              <h1 className="text-4xl md:text-[44px] lg:text-[64px] font-semibold leading-[1.05]">
                 Capital Without <br />
                 Competition. Just <br />
                 <span className="text-blue-500">Pure Performance.</span>
