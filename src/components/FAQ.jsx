@@ -67,7 +67,7 @@ export default function FAQ() {
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-900/50 transition-colors"
               >
                 <span className="font-semibold text-lg">{faq.question}</span>
-                <span className="text-blue-500 text-2xl">
+                <span className="text-blue-500 text-2xl cursor-pointer">
                   {openIndex === index ? "−" : "+"}
                 </span>
               </button>

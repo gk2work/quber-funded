@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { QuberLogo, PlayStore, AppStore } from "../assets/images";
 
 export default function Footer() {
@@ -14,10 +15,9 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-gray-400 text-sm mb-6 max-w-md leading-relaxed">
-              A performance-based funded platform providing real trading
-              opportunities, transparent rules, and scalable profit
-              opportunities. Built for disciplined traders focused on long-term
-              consistency.
+              A performance-based funded account platform empowering traders
+              with real capital, fair rules, and scalable payouts. Built for
+              consistency. Designed for growth.
             </p>
             <div className="flex gap-4">
               <a
@@ -48,12 +48,12 @@ export default function Footer() {
               <h3 className="font-bold mb-4">Links</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="#pricing" className="hover:text-white">
                     Features
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="#benefits" className="hover:text-white">
                     Benefits
                   </a>
                 </li>
@@ -68,7 +68,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="#faqs" className="hover:text-white">
                     FAQs
                   </a>
                 </li>
@@ -77,17 +77,22 @@ export default function Footer() {
 
             {/* Pages */}
             <div>
-              <h3 className="font-bold mb-4">Pages</h3>
+              <h3 className="font-bold mb-4">Other Pages</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
-                    Terms
-                  </a>
+                  <Link to="/about-us" className="hover:text-white">
+                    About Us
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
-                    Disclosures
-                  </a>
+                  <Link to="/terms-of-service" className="hover:text-white">
+                    Terms
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/privacy-policy" className="hover:text-white">
+                    Privacy Policy
+                  </Link>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
@@ -123,6 +128,44 @@ export default function Footer() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Legal & Regulatory Framework */}
+        <div className="border-t border-gray-800 pt-8 mb-8">
+          <h3 className="font-bold text-lg mb-4">
+            Legal & Regulatory Framework
+          </h3>
+          <div className="space-y-4 text-gray-400 text-sm leading-relaxed">
+            <p>
+              <span className="font-semibold text-white">License:</span> QUBER
+              CAPITAL LLC is a duly incorporated entity under the Limited
+              Liabilities Act, Chapter 151 of the Revised Laws of Saint Vincent
+              and the Grenadines 2009 (Company Registration No. 4289 LLC 2025).
+              Our global operations are headquartered at Suite 305, Griffith
+              Corporate Centre, Beachmont, Kingstown, Saint Vincent and the
+              Grenadines.
+            </p>
+            <p>
+              <span className="font-semibold text-white">
+                Authentic Market Execution:
+              </span>{" "}
+              Unlike traditional prop firms, QUBER CAPITAL LLC facilitates
+              access to genuine trading accounts through our proprietary
+              infrastructure. Every transaction is executed within live
+              financial markets. We do not engage in, nor do we offer, simulated
+              environments or virtual trading programs. Every account within our
+              ecosystem is backed by real-time liquidity, subject to actual
+              market execution, and carries tangible market risk.
+            </p>
+            <p>
+              <span className="font-semibold text-white">Risk Mandate:</span>{" "}
+              Participation in financial markets involves substantial risk and
+              may not be appropriate for every investor. We strongly advise all
+              participants to conduct rigorous due diligence and ensure a
+              comprehensive understanding of market exposure before engaging in
+              live trading activities.
+            </p>
           </div>
         </div>
 

@@ -1,18 +1,20 @@
+import { Contact247, Community, Academy } from "../assets/images/index";
+
 export default function SupportSection() {
   const features = [
     {
-      icon: "🎧",
+      icon: Contact247,
       title: "24/7 Support",
       description:
         "Need help? Get your requests solved quickly via support team",
     },
     {
-      icon: "👥",
+      icon: Community,
       title: "Community",
       description: "Join the conversations on our worldwide QUBER communities",
     },
     {
-      icon: "📚",
+      icon: Academy,
       title: "Academy",
       description: "Learn Forex Trading and crypto for free",
     },
@@ -34,12 +36,18 @@ export default function SupportSection() {
         </p>
 
         {/* Blue Background Section */}
-        <div className="bg-blue-600 rounded-3xl py-12 px-6">
+        <div
+          className="rounded-3xl py-12 px-6"
+          style={{
+            background:
+              "linear-gradient(264.7deg, #0055FF 0.77%, #1D60E5 44.34%, #0040C0 76.17%)",
+          }}
+        >
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {features.map((feature, index) => (
               <div key={index} className="text-center text-white">
-                <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center text-4xl backdrop-blur-sm">
-                  {feature.icon}
+                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl backdrop-blur-sm">
+                  <img src={feature.icon} alt="" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
                 <p className="text-blue-50 text-sm">{feature.description}</p>

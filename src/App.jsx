@@ -1,17 +1,24 @@
-import { useState } from 'react'
-import './App.css'
-import Landing from './modules/landing/pages/Landing';
-import CursorGlow from './components/shared/CursorGlow';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import MainLayout from "./layouts/MainLayout";
+import Landing from "./modules/landing/pages/Landing";
+import AboutUs from "./pages/AboutUs";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <CursorGlow />
-      <Landing />
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Landing />} />
+          <Route path="about-us" element={<AboutUs />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-of-service" element={<TermsOfService />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

@@ -1,16 +1,19 @@
 import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { QuberLogo } from "../assets/images";
 
 export default function Navbar() {
   const [active, setActive] = useState("Features");
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const menu = [
-    { name: "Features", id: "pricing" },
-    { name: "Benefits", id: "benefits" },
-    { name: "About us", id: "about" },
-    { name: "Why Quber", id: "why-quber" },
-    { name: "FAQs", id: "faqs" },
+    { name: "Features", id: "pricing", type: "scroll" },
+    { name: "Benefits", id: "benefits", type: "scroll" },
+    { name: "About us", path: "/about-us", type: "page" },
+    { name: "Why Quber", id: "why-quber", type: "scroll" },
+    { name: "FAQs", id: "faqs", type: "scroll" },
   ];
 
   const scrollToSection = (id) => {
@@ -29,15 +32,26 @@ export default function Navbar() {
 
   const handleMenuClick = (item) => {
     setActive(item.name);
-    scrollToSection(item.id);
     setOpen(false);
+
+    if (item.type === "page") {
+      navigate(item.path);
+    } else if (item.type === "scroll") {
+      // If not on home page, navigate to home first
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => scrollToSection(item.id), 100);
+      } else {
+        scrollToSection(item.id);
+      }
+    }
   };
 
   return (
     <header className="bg-white sticky top-0 z-50 border-b border-gray-200">
       <div className="max-w-10xl mx-auto px-8 lg:px-12 py-4 flex items-center justify-between">
         {/* LOGO */}
-        <div className="flex items-center gap-2 font-semibold text-lg">
+        <Link to="/" className="flex items-center gap-2 font-semibold text-lg">
           <img
             src={QuberLogo}
             alt="Quber Logo"
@@ -46,7 +60,7 @@ export default function Navbar() {
           <span>
             Quber<span className="text-blue-600">Funded</span>
           </span>
-        </div>
+        </Link>
 
         {/* DESKTOP MENU */}
         <nav className="hidden md:flex gap-8 text-sm text-gray-600">
@@ -58,8 +72,8 @@ export default function Navbar() {
                 font-medium transition whitespace-nowrap cursor-pointer
                 ${
                   active === item.name
-                    ? "text-gray-900"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "text-[#1D60E5]"
+                    : "text-gray-600 hover:text-[#1D60E5]"
                 }
             `}
             >

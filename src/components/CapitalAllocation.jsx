@@ -1,17 +1,22 @@
-import { Card1 } from "../assets/images";
+import {
+  Card1,
+  CapitalAllocate,
+  CapitalProtection,
+  ExpertTrade,
+} from "../assets/images";
 
 export default function CapitalAllocation() {
   const features = [
     {
-      icon: "⏰",
+      icon: CapitalAllocate,
       title: "Capital Allocation",
     },
     {
-      icon: "🎯",
+      icon: ExpertTrade,
       title: "Expert Trade Execution",
     },
     {
-      icon: "🛡️",
+      icon: CapitalProtection,
       title: "Capital Protection Framework",
     },
   ];
@@ -54,8 +59,8 @@ export default function CapitalAllocation() {
             <div className="space-y-5">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
-                    <span className="text-xl">{feature.icon}</span>
+                  <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
+                    <img src={feature.icon} alt="" />
                   </div>
                   <h3 className="font-medium text-lg text-white">
                     {feature.title}

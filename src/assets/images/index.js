@@ -9,7 +9,16 @@ import Contact from "./contact.svg";
 import AppStore from "./appStore.png";
 import PlayStore from "./playStore.png";
 import Card1 from "./card1.png";
-
+import Hash from "./hash.svg";
+import RiskControl from "./risk-control.svg";
+import LiveFunded from "./live-funded-stage.svg";
+import GrowthScale from "./growth-scaling.svg";
+import Contact247 from "./contact-247.svg";
+import Community from "./community.svg";
+import Academy from "./academy.svg";
+import CapitalAllocate from "./capital.svg";
+import ExpertTrade from "./expert.svg";
+import CapitalProtection from "./capital-protection.svg";
 export {
   QuberLogo,
   DesktopMonitor,
@@ -22,4 +31,14 @@ export {
   AppStore,
   PlayStore,
   Card1,
+  Hash,
+  RiskControl,
+  LiveFunded,
+  GrowthScale,
+  Contact247,
+  Community,
+  Academy,
+  CapitalAllocate,
+  CapitalProtection,
+  ExpertTrade,
 };

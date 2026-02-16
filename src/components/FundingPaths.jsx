@@ -1,31 +1,38 @@
+import {
+  Hash,
+  RiskControl,
+  LiveFunded,
+  GrowthScale,
+} from "../assets/images/index";
+
 export default function FundingPaths() {
   const features = [
     {
       title: "Evaluation Framework",
       description:
         "Clear price targets, defined drawdown limits, and transparent rules designed to test real trading discipline.",
-      icon: "📊",
+      icon: Hash,
       position: "left",
     },
     {
       title: "Live Funded Stage",
       description:
         "Move from evaluation to real capital allocation and start earning on performance — not promises.",
-      icon: "🎯",
+      icon: LiveFunded,
       position: "left",
     },
     {
       title: "Risk Control System",
       description:
         "Advanced risk parameters that protect capital while allowing serious traders to grow consistently.",
-      icon: "🛡️",
+      icon: RiskControl,
       position: "right",
     },
     {
       title: "Growth & Scaling",
       description:
         "Unlock higher funding tiers and increased capital as you demonstrate stable, responsible performance.",
-      icon: "📈",
+      icon: GrowthScale,
       position: "right",
     },
   ];
@@ -61,8 +68,8 @@ export default function FundingPaths() {
                           {feature.description}
                         </p>
                       </div>
-                      <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
-                        <span className="text-2xl">{feature.icon}</span>
+                      <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
+                        <img src={feature.icon} alt="" />
                       </div>
                     </div>
                   </div>
@@ -151,8 +158,8 @@ export default function FundingPaths() {
                 .map((feature, index) => (
                   <div key={index}>
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
-                        <span className="text-2xl">{feature.icon}</span>
+                      <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
+                        <img src={feature.icon} alt="" />
                       </div>
                       <div>
                         <h3 className="text-xl font-bold mb-2">
