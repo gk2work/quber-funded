@@ -3,6 +3,10 @@
         {
             "source": "/coingecko/simple/price",
             "destination": "/api/coingecko/simple/price"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ]
 }
