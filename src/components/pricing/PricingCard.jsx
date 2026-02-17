@@ -108,7 +108,7 @@ export default function PricingCard({
         {/* Inner Card Content */}
         <div
           className={`
-            relative rounded-3xl p-8 pt-12 transition-all duration-300
+            relative rounded-3xl p-8 pt-10 transition-all duration-300
             ${
               active
                 ? "bg-transparent"
@@ -117,19 +117,31 @@ export default function PricingCard({
           `}
         >
           {/* PRICE */}
-          <div className="mt-2 text-5xl font-bold text-blue-600">${price}</div>
+          <div className="text-center">
+            <div className="text-5xl font-extrabold text-blue-600">
+              ${price}
+            </div>
 
-          {/* FEE */}
-          <div className="mt-4 flex items-center gap-2 justify-center">
-            <span className="text-lg font-bold text-red-500 line-through ml-2">
-              ${originalFee}
-            </span>
-            <span className="text-sm text-gray-500">Fees</span>
-            <span className="text-2xl font-bold text-gray-900">${fee}</span>
+            {/* Horizontal stroke below price */}
+            <div className="mt-4 mb-4 mx-auto w-full max-w-[100%] h-[1px] bg-gray-300"></div>
           </div>
 
+          {/* FEE */}
+          <div className="mt-2 flex items-center gap-2 justify-center">
+            <span className="text-lg font-bold text-red-500 line-through">
+              ${originalFee}
+            </span>
+            <span className="text-sm text-gray-600 font-medium">Fees</span>
+            <span className="text-2xl font-extrabold text-gray-900">
+              ${fee}
+            </span>
+          </div>
+
+          {/* Horizontal stroke below fees */}
+          <div className="mt-4 mb-6 mx-auto w-full max-w-[100%] h-[1px] bg-gray-300"></div>
+
           {/* FEATURES */}
-          <div className="mt-8 space-y-3 text-left">
+          <div className="mt-6 space-y-3 text-left">
             {features.map((feature, i) => (
               <div
                 key={i}
@@ -146,7 +158,7 @@ export default function PricingCard({
                     clipRule="evenodd"
                   />
                 </svg>
-                <span>{feature}</span>
+                <span className="font-medium">{feature}</span>
               </div>
             ))}
           </div>
