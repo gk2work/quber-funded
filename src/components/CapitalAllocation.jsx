@@ -35,6 +35,7 @@ export default function CapitalAllocation() {
               <img
                 src={Card1}
                 alt="Crypto Cards"
+                loading="lazy"
                 className="w-full max-w-lg h-auto object-contain transition-transform duration-500 ease-out hover:scale-110"
               />
             </div>

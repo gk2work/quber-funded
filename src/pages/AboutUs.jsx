@@ -122,6 +122,7 @@ export default function AboutUs() {
           <img
             src={AboutUsHeaderBg}
             alt=""
+            loading="lazy"
             className="w-full h-full object-cover"
           />
         </div>
@@ -276,6 +277,7 @@ export default function AboutUs() {
               <img
                 src={AboutUsIllustration}
                 alt="Trader working"
+                loading="lazy"
                 className="w-full h-auto"
               />
             </div>

@@ -24,6 +24,7 @@ export default function PrivacyPolicy() {
           <img
             src={PrivacyPolicyHeaderBg}
             alt=""
+            loading="lazy"
             className="w-full h-full object-cover opacity-40"
           />
         </div>

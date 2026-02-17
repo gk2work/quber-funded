@@ -189,6 +189,7 @@ export default function FundingPaths() {
                   <img
                     src={MobileWithoutCircle}
                     alt="Trading Platform Mobile App"
+                    loading="lazy"
                     className="relative z-10 object-contain drop-shadow-2xl"
                   />
 

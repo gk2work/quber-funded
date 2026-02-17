@@ -37,7 +37,7 @@ export default function PerformanceSteps() {
           const scrollProgress =
             (viewportHeight - rect.top) / (rect.height + viewportHeight);
 
-          // Activate steps based on scroll progress
+          // Activate steps based on scroll progress - original timing
           if (scrollProgress < 0.3) {
             setActiveStep(0);
           } else if (scrollProgress < 0.6) {
@@ -120,14 +120,14 @@ export default function PerformanceSteps() {
 
               {/* Active dashed line (blue with glow) */}
               <svg
-                className="absolute inset-0 transition-all duration-1000 ease-out"
+                className="absolute inset-0 transition-all duration-[1500ms] ease-in-out"
                 height="4"
                 preserveAspectRatio="none"
                 style={{
                   width: activeStep >= 1 ? "100%" : "0%",
                   filter:
                     activeStep >= 1
-                      ? "drop-shadow(0 0 10px rgba(37, 99, 235, 0.8))"
+                      ? "drop-shadow(0 0 12px rgba(37, 99, 235, 0.9))"
                       : "none",
                 }}
               >
@@ -145,12 +145,17 @@ export default function PerformanceSteps() {
 
             {/* Line 2 to 3 */}
             <div className="absolute left-[50%] right-[16.66%] top-0">
-              {/* Background dashed line (gray) */}
+              {/* Background dashed line (gray) - appears on scroll after step 2 */}
               <svg
-                className="absolute inset-0"
+                className="absolute inset-0 transition-all duration-500 ease-in-out"
                 width="100%"
                 height="4"
                 preserveAspectRatio="none"
+                style={{
+                  opacity: activeStep >= 2 ? 1 : 0,
+                  transform: activeStep >= 2 ? "scaleX(1)" : "scaleX(0)",
+                  transformOrigin: "left",
+                }}
               >
                 <line
                   x1="0"
@@ -163,17 +168,18 @@ export default function PerformanceSteps() {
                 />
               </svg>
 
-              {/* Active dashed line (blue with glow) */}
+              {/* Active dashed line (blue with glow) - appears after white line */}
               <svg
-                className="absolute inset-0 transition-all duration-1000 ease-out"
+                className="absolute inset-0 transition-all duration-[1200ms] ease-in-out"
                 height="4"
                 preserveAspectRatio="none"
                 style={{
                   width: activeStep >= 2 ? "100%" : "0%",
                   filter:
                     activeStep >= 2
-                      ? "drop-shadow(0 0 10px rgba(37, 99, 235, 0.8))"
+                      ? "drop-shadow(0 0 12px rgba(37, 99, 235, 0.9))"
                       : "none",
+                  transitionDelay: activeStep >= 2 ? "400ms" : "0ms",
                 }}
               >
                 <line
@@ -194,7 +200,7 @@ export default function PerformanceSteps() {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`text-center transition-all duration-700 ${
+                className={`text-center transition-all duration-[1200ms] ease-out ${
                   activeStep >= index
                     ? "opacity-100 translate-y-0"
                     : "opacity-30 translate-y-10"
@@ -202,7 +208,7 @@ export default function PerformanceSteps() {
               >
                 {/* Step number box */}
                 <div
-                  className={`bg-blue-600 text-white w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-bold mb-6 mx-auto transition-all duration-500 ${
+                  className={`bg-blue-600 text-white w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-bold mb-6 mx-auto transition-all duration-700 ease-out ${
                     activeStep >= index
                       ? "scale-110 shadow-lg shadow-blue-500/50"
                       : "scale-100"

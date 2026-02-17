@@ -24,6 +24,7 @@ export default function TermsOfService() {
           <img
             src={TNCHeaderBg}
             alt=""
+            loading="lazy"
             className="w-full h-full object-cover opacity-40"
           />
         </div>
