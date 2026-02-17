@@ -77,7 +77,7 @@ export default function PricingSection() {
     },
     {
       id: "professional",
-      title: "Professional",
+      title: "Professional*",
       price: "50,000",
       fee: "1649",
       originalFee: "2999",

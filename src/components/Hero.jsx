@@ -65,9 +65,11 @@ export default function Hero() {
               <h1 className="text-4xl md:text-[44px] lg:text-[64px] font-semibold leading-[1.05]">
                 Capital Without <br />
                 Competition. Just <br />
-                <span className="text-blue-500">
+                <span
+                  className="text-blue-500"
+                  style={{ letterSpacing: "0.05em" }}
+                >
                   Pure {typingText}
-                  <span className="animate-pulse">|</span>
                 </span>
               </h1>
             </ScrollReveal>
