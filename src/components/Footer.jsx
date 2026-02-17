@@ -5,7 +5,7 @@ import ScrollReveal from "./shared/ScrollReveal";
 export default function Footer() {
   return (
     <footer className="bg-[#06090f] text-white border-t border-gray-800 py-12">
-      <div className="max-w-[88rem] mx-auto px-8">
+      <div className="max-w-[88rem] mx-auto px-8 lg:px-12">
         <div className="grid md:grid-cols-2 gap-12 mb-8">
           {/* Left Half - Logo & Description */}
           <ScrollReveal direction="left" delay={0}>

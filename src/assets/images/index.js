@@ -8,7 +8,7 @@ import Users from "./users.svg";
 import Contact from "./contact.svg";
 import AppStore from "./appStore.png";
 import PlayStore from "./playStore.png";
-import Card1 from "./card1.png";
+import Card1 from "./coin-price.png";
 import Hash from "./hash.svg";
 import RiskControl from "./risk-control.svg";
 import LiveFunded from "./live-funded-stage.svg";
@@ -20,7 +20,7 @@ import CapitalAllocate from "./capital.svg";
 import ExpertTrade from "./expert.svg";
 import CapitalProtection from "./capital-protection.svg";
 import Mobile from "./mobile.png";
-import MobileWithCircle from "./mobile-with-circle.png";
+import MobileWithoutCircle from "./mobile-no-circle.png";
 import PrivacyPolicyHeaderBg from "./privacy-header.png";
 import TNCHeaderBg from "./tnc-header-bg.png";
 import AboutUsHeaderBg from "./about-us-header.png";
@@ -49,7 +49,7 @@ export {
   CapitalProtection,
   ExpertTrade,
   Mobile,
-  MobileWithCircle,
+  MobileWithoutCircle,
   PrivacyPolicyHeaderBg,
   TNCHeaderBg,
   AboutUsHeaderBg,
