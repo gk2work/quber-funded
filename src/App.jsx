@@ -5,6 +5,7 @@ import Landing from "./modules/landing/pages/Landing";
 import AboutUs from "./pages/AboutUs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route path="about-us" element={<AboutUs />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-of-service" element={<TermsOfService />} />
+          <Route path="latest-news" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

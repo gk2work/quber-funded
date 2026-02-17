@@ -95,9 +95,9 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white">
+                    <Link to="/latest-news" className="hover:text-white">
                       Latest News
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
