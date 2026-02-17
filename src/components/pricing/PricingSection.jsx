@@ -45,8 +45,8 @@ export default function PricingSection() {
       ],
     },
     {
-      id: "intermediate",
-      title: "Intermediate",
+      id: "classic",
+      title: "Classic",
       price: "10,000",
       fee: "329",
       originalFee: "599",
@@ -61,11 +61,26 @@ export default function PricingSection() {
       ],
     },
     {
-      id: "professional",
-      title: "Proffesional",
+      id: "standard",
+      title: "Standard",
       price: "25,000",
-      fee: "829",
-      originalFee: "1499",
+      fee: "1499",
+      originalFee: "829",
+      features: [
+        "No challenge, No Consistency",
+        "10% Max drawdown",
+        "5 % Daily drawdown",
+        "70% Profit Split",
+        "Instant Payout , Weekly Thereafter.",
+        "Unlimited Trading Period",
+      ],
+    },
+    {
+      id: "professional",
+      title: "Professional",
+      price: "50,000",
+      fee: "1649",
+      originalFee: "2999",
       features: [
         "No challenge, No Consistency",
         "10% Max drawdown",
@@ -77,7 +92,7 @@ export default function PricingSection() {
     },
   ];
 
-  const [selectedPlan, setSelectedPlan] = useState("");
+  const [selectedPlan, setSelectedPlan] = useState(null);
 
   return (
     <section
@@ -115,7 +130,7 @@ export default function PricingSection() {
         </ScrollReveal>
 
         {/* CARDS */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8">
           {plans.map((p, index) => (
             <ScrollReveal key={p.id} direction="up" delay={500 + index * 100}>
               <PricingCard

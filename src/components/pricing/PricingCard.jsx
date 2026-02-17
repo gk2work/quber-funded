@@ -40,7 +40,7 @@ export default function PricingCard({
     <div
       className={`
         relative pt-6 transition-all duration-300
-        ${active || isHovered ? "scale-[1.05]" : "scale-100"}
+        ${active || isHovered ? "-translate-y-4" : "translate-y-0"}
       `}
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
