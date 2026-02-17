@@ -66,7 +66,7 @@ export default function FAQ() {
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <ScrollReveal key={index} direction="up" delay={300 + index * 50}>
-              <div className="border border-gray-800 rounded-lg overflow-hidden">
+              <div className="bg-[#FFFFFF0D] rounded-xl overflow-hidden">
                 <button
                   onClick={() =>
                     setOpenIndex(openIndex === index ? null : index)

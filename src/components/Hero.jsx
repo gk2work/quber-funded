@@ -7,18 +7,18 @@ export default function Hero() {
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const phrases = ["Pure Performance.", "Pure Profit.", "Pure Strategy."];
+  const words = ["Performance.", "Profit.", "Strategy."];
 
   useEffect(() => {
-    const currentPhrase = phrases[phraseIndex];
+    const currentWord = words[phraseIndex];
     const typingSpeed = isDeleting ? 50 : 100;
     const pauseTime = 2000;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
         // Typing forward
-        if (typingText.length < currentPhrase.length) {
-          setTypingText(currentPhrase.slice(0, typingText.length + 1));
+        if (typingText.length < currentWord.length) {
+          setTypingText(currentWord.slice(0, typingText.length + 1));
         } else {
           // Pause before deleting
           setTimeout(() => setIsDeleting(true), pauseTime);
@@ -26,11 +26,11 @@ export default function Hero() {
       } else {
         // Deleting backward
         if (typingText.length > 0) {
-          setTypingText(currentPhrase.slice(0, typingText.length - 1));
+          setTypingText(currentWord.slice(0, typingText.length - 1));
         } else {
-          // Move to next phrase
+          // Move to next word
           setIsDeleting(false);
-          setPhraseIndex((prev) => (prev + 1) % phrases.length);
+          setPhraseIndex((prev) => (prev + 1) % words.length);
         }
       }
     }, typingSpeed);
@@ -66,7 +66,7 @@ export default function Hero() {
                 Capital Without <br />
                 Competition. Just <br />
                 <span className="text-blue-500">
-                  {typingText}
+                  Pure {typingText}
                   <span className="animate-pulse">|</span>
                 </span>
               </h1>

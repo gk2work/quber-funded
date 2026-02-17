@@ -5,9 +5,9 @@ export default function SupportSection() {
   const features = [
     {
       icon: Contact247,
-      title: "24/7 Support",
+      title: "24/5 Support",
       description:
-        "Need help? Get your requests solved quickly via support team",
+        "Need help? Get your requests solved quickly via support team.",
     },
     {
       icon: Community,
@@ -58,7 +58,9 @@ export default function SupportSection() {
                     <img src={feature.icon} alt="" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-blue-50 text-sm">{feature.description}</p>
+                  <p className="text-[#FFFFFF99] text-sm font-[400]">
+                    {feature.description}
+                  </p>
                 </div>
               ))}
             </div>
