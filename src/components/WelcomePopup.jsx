@@ -5,12 +5,17 @@ export default function WelcomePopup() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    // Show popup after 2 seconds on landing page
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 2000);
+    // Check if popup has been shown before
+    const hasSeenPopup = sessionStorage.getItem("hasSeenWelcomePopup");
 
-    return () => clearTimeout(timer);
+    if (!hasSeenPopup) {
+      // Show popup after 2 seconds on first visit
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleCopyCode = () => {
@@ -21,6 +26,8 @@ export default function WelcomePopup() {
 
   const handleClose = () => {
     setIsOpen(false);
+    // Mark popup as seen for this session
+    sessionStorage.setItem("hasSeenWelcomePopup", "true");
   };
 
   if (!isOpen) return null;

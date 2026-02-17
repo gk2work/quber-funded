@@ -4,7 +4,7 @@ export default function TermsOfService() {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Background */}
-      <section className="relative bg-[#0a1628] text-white h-[300px] flex items-center justify-center">
+      <section className="relative bg-[#0a1628] text-white h-[300px] flex items-center justify-center px-4">
         <div className="absolute inset-0 overflow-hidden">
           <img
             src={TNCHeaderBg}
@@ -12,7 +12,7 @@ export default function TermsOfService() {
             className="w-full h-full object-cover opacity-40"
           />
         </div>
-        <h1 className="relative text-5xl md:text-6xl font-bold z-10">
+        <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold z-10 text-center">
           Terms & Conditions
         </h1>
       </section>

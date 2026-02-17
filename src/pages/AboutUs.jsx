@@ -3,8 +3,54 @@ import {
   AboutUsHeaderOverlay,
   AboutUsIllustration,
 } from "../assets/images/index";
+import { useState, useEffect, useRef } from "react";
 
 export default function AboutUs() {
+  const blueCardRef = useRef(null);
+  const contentRef = useRef(null);
+  const [blueCardVisible, setBlueCardVisible] = useState(false);
+  const [blueCardProgress, setBlueCardProgress] = useState(0);
+  const [activeWordIndex, setActiveWordIndex] = useState(-1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if blue card is in viewport and calculate scroll progress
+      if (blueCardRef.current) {
+        const rect = blueCardRef.current.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const isVisible = rect.top < viewportHeight && rect.bottom > 0;
+        setBlueCardVisible(isVisible);
+
+        // Calculate progress through the blue card (0 to 1)
+        if (isVisible) {
+          const progress = Math.min(
+            Math.max((viewportHeight - rect.top) / viewportHeight, 0),
+            1,
+          );
+          setBlueCardProgress(progress);
+        }
+      }
+
+      // Highlight words based on scroll position
+      if (contentRef.current) {
+        const rect = contentRef.current.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        if (rect.top < viewportHeight && rect.bottom > 0) {
+          const scrollProgress =
+            (viewportHeight - rect.top) / (rect.height + viewportHeight);
+          const totalWords = 60; // Approximate total words in both paragraphs
+          const currentWord = Math.floor(scrollProgress * totalWords);
+          setActiveWordIndex(currentWord);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with Background */}
@@ -51,8 +97,17 @@ export default function AboutUs() {
             </p>
           </div>
 
-          {/* Blue Card Section */}
-          <div className="bg-gradient-to-r from-blue-600 to-blue-900 rounded-3xl p-10 md:p-12 mb-6 text-white">
+          {/* Blue Card Section with Parallax */}
+          <div
+            ref={blueCardRef}
+            className="bg-gradient-to-r from-blue-600 to-blue-900 rounded-3xl p-10 md:p-12 mb-6 text-white transition-all duration-700"
+            style={{
+              opacity: blueCardVisible ? 1 : 0.3,
+              transform: blueCardVisible
+                ? "translateY(0) scale(1)"
+                : "translateY(50px) scale(0.95)",
+            }}
+          >
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {/* Left side */}
               <div className="flex items-center gap-4">
@@ -66,13 +121,28 @@ export default function AboutUs() {
                 </div>
               </div>
 
-              {/* Right side - Two hoverable items */}
+              {/* Right side - Two hoverable items with sequential highlighting */}
               <div className="flex flex-col gap-4 max-w-[252px]">
                 {/* Item 1 - Backed By Real Capital */}
-                <div className="flex items-center gap-3 group cursor-pointer transition-all duration-300 hover:scale-105">
-                  <div className="bg-blue-500 rounded-full p-2 group-hover:bg-white transition-colors duration-300">
+                <div
+                  className="flex items-center gap-3 group cursor-pointer transition-all duration-700 hover:scale-105"
+                  style={{
+                    opacity: blueCardProgress > 0.4 ? 1 : 0.3,
+                    transform:
+                      blueCardProgress > 0.4
+                        ? "translateX(0)"
+                        : "translateX(-30px)",
+                  }}
+                >
+                  <div
+                    className="rounded-full p-2 transition-all duration-500"
+                    style={{
+                      backgroundColor:
+                        blueCardProgress > 0.4 ? "#3B82F6" : "#3B82F650",
+                    }}
+                  >
                     <svg
-                      className="w-5 h-5 text-white group-hover:text-blue-600 transition-colors duration-300"
+                      className="w-5 h-5 text-white transition-colors duration-300"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -81,7 +151,7 @@ export default function AboutUs() {
                   </div>
                   <div>
                     <p
-                      className="text-[29px] font-bold leading-[140%] tracking-[-0.02em] group-hover:text-white transition-colors duration-300"
+                      className="text-[29px] font-bold leading-[140%] tracking-[-0.02em] transition-colors duration-300"
                       style={{ fontFamily: "Manrope, sans-serif" }}
                     >
                       Backed By Real Capital
@@ -90,10 +160,25 @@ export default function AboutUs() {
                 </div>
 
                 {/* Item 2 - Built For Real Traders */}
-                <div className="flex items-center gap-3 group cursor-pointer transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100">
-                  <div className="bg-blue-500/50 rounded-full p-2 group-hover:bg-white transition-colors duration-300">
+                <div
+                  className="flex items-center gap-3 group cursor-pointer transition-all duration-700 hover:scale-105"
+                  style={{
+                    opacity: blueCardProgress > 0.7 ? 1 : 0.3,
+                    transform:
+                      blueCardProgress > 0.7
+                        ? "translateX(0)"
+                        : "translateX(-30px)",
+                  }}
+                >
+                  <div
+                    className="rounded-full p-2 transition-all duration-500"
+                    style={{
+                      backgroundColor:
+                        blueCardProgress > 0.7 ? "#3B82F6" : "#3B82F650",
+                    }}
+                  >
                     <svg
-                      className="w-5 h-5 text-white group-hover:text-blue-600 transition-colors duration-300"
+                      className="w-5 h-5 text-white transition-colors duration-300"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -102,7 +187,7 @@ export default function AboutUs() {
                   </div>
                   <div>
                     <p
-                      className="text-[29px] font-bold leading-[140%] tracking-[-0.02em] group-hover:text-white transition-colors duration-300"
+                      className="text-[29px] font-bold leading-[140%] tracking-[-0.02em] transition-colors duration-300"
                       style={{ fontFamily: "Manrope, sans-serif" }}
                     >
                       Built For Real Traders
@@ -140,89 +225,57 @@ export default function AboutUs() {
               />
             </div>
 
-            {/* Content */}
-            <div className="space-y-8 text-center max-w-[968px] mx-auto">
+            {/* Content with Scroll-based Highlighting */}
+            <div
+              ref={contentRef}
+              className="space-y-8 text-center max-w-[968px] mx-auto"
+            >
               <div className="relative">
                 <p
                   className="text-[48px] font-bold leading-[120%] tracking-[-0.04em]"
                   style={{ fontFamily: "Manrope, sans-serif" }}
                 >
-                  <span className="text-[#0a1628]">In a market </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    full{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    of{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    hype{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    and{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    unclear{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    terms,{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    Quber{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    Funded{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    delivers{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    structure,{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    transparency,{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    and{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    a{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    professional{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    trading{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    environment{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    backed{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    by{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    institutional-grade{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    infrastructure{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    and{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    clearly{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    defined{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    risk{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    rules.
-                  </span>
+                  {[
+                    "In",
+                    "a",
+                    "market",
+                    "full",
+                    "of",
+                    "hype",
+                    "and",
+                    "unclear",
+                    "terms,",
+                    "Quber",
+                    "Funded",
+                    "delivers",
+                    "structure,",
+                    "transparency,",
+                    "and",
+                    "a",
+                    "professional",
+                    "trading",
+                    "environment",
+                    "backed",
+                    "by",
+                    "institutional-grade",
+                    "infrastructure",
+                    "and",
+                    "clearly",
+                    "defined",
+                    "risk",
+                    "rules.",
+                  ].map((word, index) => (
+                    <span
+                      key={index}
+                      className={`transition-colors duration-300 ${
+                        index <= activeWordIndex
+                          ? "text-[#0a1628]"
+                          : "text-gray-300"
+                      } hover:text-[#0a1628] cursor-default`}
+                    >
+                      {word}{" "}
+                    </span>
+                  ))}
                 </p>
               </div>
 
@@ -231,84 +284,48 @@ export default function AboutUs() {
                   className="text-[48px] font-bold leading-[120%] tracking-[-0.04em]"
                   style={{ fontFamily: "Manrope, sans-serif" }}
                 >
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    We{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    offer{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    real{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    capital{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    with{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    strict{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    risk{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    management{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    and{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    performance-based{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    payouts{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    no{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    exaggerated{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    promises,{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    only{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    disciplined{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    growth{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    for{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    serious{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    traders{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    who{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    value{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    consistency{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    and{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    long-term{" "}
-                  </span>
-                  <span className="text-gray-300 hover:text-[#0a1628] transition-colors duration-200 cursor-default">
-                    scaling.
-                  </span>
+                  {[
+                    "We",
+                    "offer",
+                    "real",
+                    "capital",
+                    "with",
+                    "strict",
+                    "risk",
+                    "management",
+                    "and",
+                    "performance-based",
+                    "payouts",
+                    "no",
+                    "exaggerated",
+                    "promises,",
+                    "only",
+                    "disciplined",
+                    "growth",
+                    "for",
+                    "serious",
+                    "traders",
+                    "who",
+                    "value",
+                    "consistency",
+                    "and",
+                    "long-term",
+                    "scaling.",
+                  ].map((word, index) => {
+                    const globalIndex = index + 28; // Offset for second paragraph
+                    return (
+                      <span
+                        key={index}
+                        className={`transition-colors duration-300 ${
+                          globalIndex <= activeWordIndex
+                            ? "text-[#0a1628]"
+                            : "text-gray-300"
+                        } hover:text-[#0a1628] cursor-default`}
+                      >
+                        {word}{" "}
+                      </span>
+                    );
+                  })}
                 </p>
               </div>
 
