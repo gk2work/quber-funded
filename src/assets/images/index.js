@@ -23,7 +23,9 @@ import Mobile from "./mobile.png";
 import MobileWithCircle from "./mobile-with-circle.png";
 import PrivacyPolicyHeaderBg from "./privacy-header.png";
 import TNCHeaderBg from "./tnc-header-bg.png";
-import AboutUsHeaderBg from "./about-us-header.png";
+import AboutUsHeaderBg from "./Rectangle 4349.png";
+import AboutUsHeaderOverlay from "./29aa4b760d51c65be720541504ac999279f2b13f (1).jpg";
+import AboutUsIllustration from "./about-us-page-template.png";
 
 export {
   QuberLogo,
@@ -52,4 +54,6 @@ export {
   PrivacyPolicyHeaderBg,
   TNCHeaderBg,
   AboutUsHeaderBg,
+  AboutUsHeaderOverlay,
+  AboutUsIllustration,
 };
