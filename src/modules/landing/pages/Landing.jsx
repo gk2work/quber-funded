@@ -9,10 +9,12 @@ import SupportSection from "../../../components/SupportSection";
 import ScaleCTA from "../../../components/ScaleCTA";
 import ScrollingBanner from "../../../components/ScrollingBanner";
 import FAQ from "../../../components/FAQ";
+import WelcomePopup from "../../../components/WelcomePopup";
 
 export default function Landing() {
   return (
     <div className="w-full overflow-x-hidden">
+      <WelcomePopup />
       <Hero />
       <ForexTicker />
       <PricingSection />
