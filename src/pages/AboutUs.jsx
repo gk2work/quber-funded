@@ -1,16 +1,29 @@
-import {
-  AboutUsHeaderBg,
-  AboutUsHeaderOverlay,
-  AboutUsIllustration,
-} from "../assets/images/index";
+import { AboutUsHeaderBg, AboutUsIllustration } from "../assets/images/index";
 import { useState, useEffect, useRef } from "react";
+import ScrollingBanner from "../components/ScrollingBanner";
 
 export default function AboutUs() {
   const blueCardRef = useRef(null);
   const contentRef = useRef(null);
+  const statsRef = useRef(null);
   const [blueCardVisible, setBlueCardVisible] = useState(false);
   const [blueCardProgress, setBlueCardProgress] = useState(0);
   const [activeWordIndex, setActiveWordIndex] = useState(-1);
+  const [statsAnimated, setStatsAnimated] = useState(false);
+  const [statValues, setStatValues] = useState({
+    stat1: 0,
+    stat2: 0,
+    stat3: 0,
+    stat4: 0,
+  });
+
+  // Final values for stats
+  const finalStats = {
+    stat1: 92,
+    stat2: 18,
+    stat3: 3.5,
+    stat4: 800,
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,18 +57,67 @@ export default function AboutUs() {
           setActiveWordIndex(currentWord);
         }
       }
+
+      // Trigger stats animation when in viewport
+      if (statsRef.current && !statsAnimated) {
+        const rect = statsRef.current.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        // Only trigger when the stats section is actually visible (top is in viewport)
+        if (rect.top < viewportHeight * 0.7 && rect.bottom > 0) {
+          setStatsAnimated(true);
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [statsAnimated]);
+
+  // Animate stats counter
+  useEffect(() => {
+    if (!statsAnimated) return;
+
+    const duration = 2000; // 2 seconds
+    const steps = 60; // 60 frames
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+
+    const interval = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+
+      // Easing function for smooth deceleration
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+
+      setStatValues({
+        stat1: Math.floor(finalStats.stat1 * easeOut),
+        stat2: Math.floor(finalStats.stat2 * easeOut),
+        stat3: parseFloat((finalStats.stat3 * easeOut).toFixed(1)),
+        stat4: Math.floor(finalStats.stat4 * easeOut),
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(interval);
+        // Set final values
+        setStatValues({
+          stat1: finalStats.stat1,
+          stat2: finalStats.stat2,
+          stat3: finalStats.stat3,
+          stat4: finalStats.stat4,
+        });
+      }
+    }, stepDuration);
+
+    return () => clearInterval(interval);
+  }, [statsAnimated]);
 
   return (
     <div className="min-h-screen">
       {/* Hero Section with Background */}
       <section className="relative bg-[#0a1628] text-white h-[300px] flex items-center justify-center">
-        {/* Blue gradient background layer */}
+        {/* Background image - Full screen */}
         <div className="absolute inset-0 overflow-hidden">
           <img
             src={AboutUsHeaderBg}
@@ -63,33 +125,26 @@ export default function AboutUs() {
             className="w-full h-full object-cover"
           />
         </div>
-        {/* Building columns overlay layer */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={AboutUsHeaderOverlay}
-            alt=""
-            className="w-full h-full object-cover opacity-40"
-          />
+        {/* Content container with max-w-[88rem] */}
+        <div className="relative z-10 max-w-[88rem] mx-auto px-8 lg:px-12 w-full">
+          <h1 className="text-5xl md:text-6xl font-bold">About Us</h1>
         </div>
-        <h1 className="relative text-5xl md:text-6xl font-bold z-10">
-          About Us
-        </h1>
       </section>
 
       {/* Content Section - White Background */}
       <section className="bg-white pt-16 pb-0">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+        <div className="max-w-[88rem] mx-auto px-8 lg:px-12">
           {/* Mission Statement */}
           <div className="text-center mb-16">
             <h2
-              className="text-[56px] font-bold leading-[120%] tracking-[-0.04em] max-w-[1033px] mx-auto text-[#0a1628]"
+              className="text-[32px] md:text-[44px] lg:text-[56px] font-bold leading-[120%] tracking-[-0.04em] max-w-[1033px] mx-auto text-[#0a1628]"
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
-              Empowering Vision. Backing{" "}
-              <span className="text-blue-600">Real Traders.</span>
+              Empowering Vision. <br />
+              <span className="text-blue-600"> Real Traders.</span>
             </h2>
             <p
-              className="text-[40px] font-normal leading-[140%] tracking-[0%] max-w-[882px] mx-auto mt-6 text-gray-600"
+              className="text-[20px] md:text-[28px] lg:text-[40px] font-normal leading-[140%] tracking-[0%] max-w-[882px] mx-auto mt-6 text-gray-600"
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
               Our mission is simple give disciplined traders the funding,
@@ -100,7 +155,7 @@ export default function AboutUs() {
           {/* Blue Card Section with Parallax */}
           <div
             ref={blueCardRef}
-            className="bg-gradient-to-r from-blue-600 to-blue-900 rounded-3xl p-10 md:p-12 mb-6 text-white transition-all duration-700"
+            className="bg-gradient-to-r from-blue-600 to-blue-900 rounded-3xl p-6 md:p-10 lg:p-12 mb-6 text-white transition-all duration-700"
             style={{
               opacity: blueCardVisible ? 1 : 0.3,
               transform: blueCardVisible
@@ -113,7 +168,7 @@ export default function AboutUs() {
               <div className="flex items-center gap-4">
                 <div className="max-w-[482px]">
                   <p
-                    className="text-[36px] font-normal leading-[140%] tracking-[0%]"
+                    className="text-[20px] md:text-[28px] lg:text-[36px] font-normal leading-[140%] tracking-[0%]"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >
                     Trade With Our Dedicated Tier-1 Liquidity Partner
@@ -151,7 +206,7 @@ export default function AboutUs() {
                   </div>
                   <div>
                     <p
-                      className="text-[29px] font-bold leading-[140%] tracking-[-0.02em] transition-colors duration-300"
+                      className="text-[18px] md:text-[22px] lg:text-[29px] font-bold leading-[140%] tracking-[-0.02em] transition-colors duration-300"
                       style={{ fontFamily: "Manrope, sans-serif" }}
                     >
                       Backed By Real Capital
@@ -187,7 +242,7 @@ export default function AboutUs() {
                   </div>
                   <div>
                     <p
-                      className="text-[29px] font-bold leading-[140%] tracking-[-0.02em] transition-colors duration-300"
+                      className="text-[18px] md:text-[22px] lg:text-[29px] font-bold leading-[140%] tracking-[-0.02em] transition-colors duration-300"
                       style={{ fontFamily: "Manrope, sans-serif" }}
                     >
                       Built For Real Traders
@@ -200,7 +255,7 @@ export default function AboutUs() {
 
           {/* Subtext */}
           <p
-            className="text-center text-gray-400 text-[18px] font-normal leading-[140%] tracking-[0%] max-w-[642px] mx-auto mb-16"
+            className="text-center text-gray-400 text-[18px] font-normal leading-[140%] tracking-[0%] max-w-[642px] mx-auto mb-16 px-4 transition-all duration-700"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             From FX scalping to Indices and Commodities, QUBER Funded operates
@@ -210,7 +265,7 @@ export default function AboutUs() {
           {/* Why Choose Section */}
           <div className="mb-16">
             <h2
-              className="text-[56px] font-bold leading-[120%] tracking-[-0.04em] max-w-[684px] mx-auto text-center text-[#0a1628] mb-12"
+              className="text-[32px] md:text-[44px] lg:text-[56px] font-bold leading-[120%] tracking-[-0.04em] max-w-[684px] mx-auto text-center text-[#0a1628] mb-12"
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
               Why Choose <span className="text-blue-600">Quber Funded</span>
@@ -232,7 +287,7 @@ export default function AboutUs() {
             >
               <div className="relative">
                 <p
-                  className="text-[48px] font-bold leading-[120%] tracking-[-0.04em]"
+                  className="text-[24px] md:text-[36px] lg:text-[48px] font-bold leading-[120%] tracking-[-0.04em]"
                   style={{ fontFamily: "Manrope, sans-serif" }}
                 >
                   {[
@@ -245,8 +300,8 @@ export default function AboutUs() {
                     "and",
                     "unclear",
                     "terms,",
-                    "Quber",
-                    "Funded",
+                    "Quber", // this should turn blue
+                    "Funded", // this should turn blue
                     "delivers",
                     "structure,",
                     "transparency,",
@@ -264,24 +319,30 @@ export default function AboutUs() {
                     "defined",
                     "risk",
                     "rules.",
-                  ].map((word, index) => (
-                    <span
-                      key={index}
-                      className={`transition-colors duration-300 ${
-                        index <= activeWordIndex
-                          ? "text-[#0a1628]"
-                          : "text-gray-300"
-                      } hover:text-[#0a1628] cursor-default`}
-                    >
-                      {word}{" "}
-                    </span>
-                  ))}
+                  ].map((word, index) => {
+                    const isQuberFunded = word === "Quber" || word === "Funded";
+                    const isHighlighted = index <= activeWordIndex;
+                    return (
+                      <span
+                        key={index}
+                        className={`transition-colors duration-300 ${
+                          isHighlighted
+                            ? isQuberFunded
+                              ? "text-blue-600"
+                              : "text-[#0a1628]"
+                            : "text-gray-300"
+                        } cursor-default`}
+                      >
+                        {word}{" "}
+                      </span>
+                    );
+                  })}
                 </p>
               </div>
 
               <div className="relative">
                 <p
-                  className="text-[48px] font-bold leading-[120%] tracking-[-0.04em]"
+                  className="text-[24px] md:text-[36px] lg:text-[48px] font-bold leading-[120%] tracking-[-0.04em]"
                   style={{ fontFamily: "Manrope, sans-serif" }}
                 >
                   {[
@@ -330,10 +391,13 @@ export default function AboutUs() {
               </div>
 
               {/* Stats Section */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-gray-200">
+              <div
+                ref={statsRef}
+                className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-gray-200"
+              >
                 <div className="text-center">
                   <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                    92%
+                    {statValues.stat1}%
                   </p>
                   <p className="text-gray-600 text-sm leading-tight">
                     Trader Payout
@@ -343,7 +407,7 @@ export default function AboutUs() {
                 </div>
                 <div className="text-center">
                   <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                    18+
+                    {statValues.stat2}+
                   </p>
                   <p className="text-gray-600 text-sm leading-tight">
                     Years of Combined
@@ -353,7 +417,7 @@ export default function AboutUs() {
                 </div>
                 <div className="text-center">
                   <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                    $3.5M+
+                    ${statValues.stat3}M+
                   </p>
                   <p className="text-gray-600 text-sm leading-tight">
                     Capital Allocated
@@ -363,7 +427,7 @@ export default function AboutUs() {
                 </div>
                 <div className="text-center">
                   <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                    800+
+                    {statValues.stat4}+
                   </p>
                   <p className="text-gray-600 text-sm leading-tight">
                     Global Trading
@@ -377,7 +441,7 @@ export default function AboutUs() {
         </div>
 
         {/* Bottom CTA Section - Full Width */}
-        <div className="bg-[#000510] text-white py-16 text-center overflow-hidden">
+        {/* <div className="bg-[#000510] text-white py-16 text-center overflow-hidden">
           <div className="space-y-4 max-w-[973px] mx-auto px-6">
             <h2
               className="text-[100px] font-extrabold leading-[120%] tracking-[-0.06em] animate-slide-in-left-continuous whitespace-nowrap"
@@ -392,7 +456,8 @@ export default function AboutUs() {
               We fund <span className="text-blue-400">performance.</span>
             </h2>
           </div>
-        </div>
+        </div> */}
+        <ScrollingBanner />
       </section>
     </div>
   );

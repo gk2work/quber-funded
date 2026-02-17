@@ -8,6 +8,7 @@ export default function RippleButton({
 }) {
   const [ripples, setRipples] = useState([]);
   const [isPressed, setIsPressed] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = (e) => {
     const button = e.currentTarget;
@@ -35,7 +36,44 @@ export default function RippleButton({
 
   const handleMouseDown = () => setIsPressed(true);
   const handleMouseUp = () => setIsPressed(false);
-  const handleMouseLeave = () => setIsPressed(false);
+  const handleMouseLeave = () => {
+    setIsPressed(false);
+    setIsHovered(false);
+  };
+  const handleMouseEnter = () => setIsHovered(true);
+
+  // Check if children contains an arrow
+  const childrenString = typeof children === "string" ? children : "";
+  const hasArrow =
+    childrenString.includes("→") || childrenString.includes("->");
+
+  // Split content to separate arrow
+  const renderChildren = () => {
+    if (typeof children === "string" && hasArrow) {
+      const parts = children.split("→");
+      if (parts.length === 2) {
+        return (
+          <>
+            <span>{parts[0]}</span>
+            <span
+              className={`inline-block transition-all duration-300 ease-out ${
+                isHovered
+                  ? "translate-x-1 scale-125"
+                  : "translate-x-0 scale-100"
+              }`}
+              style={{
+                animation: isHovered ? "arrow-spin 0.6s ease-in-out" : "none",
+              }}
+            >
+              →
+            </span>
+            <span>{parts[1]}</span>
+          </>
+        );
+      }
+    }
+    return children;
+  };
 
   return (
     <button
@@ -43,6 +81,7 @@ export default function RippleButton({
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
       className={`
         relative overflow-hidden
         transition-all duration-200 ease-out cursor-pointer
@@ -51,8 +90,8 @@ export default function RippleButton({
       `}
       {...props}
     >
-      <span className="relative z-10 inline-flex items-center justify-center transition-all duration-200 ease-out">
-        {children}
+      <span className="relative z-10 inline-flex items-center justify-center gap-2 transition-all duration-200 ease-out">
+        {renderChildren()}
       </span>
 
       {ripples.map((ripple) => (
@@ -80,6 +119,15 @@ export default function RippleButton({
           100% {
             transform: scale(1);
             opacity: 0;
+          }
+        }
+
+        @keyframes arrow-spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
           }
         }
       `}</style>

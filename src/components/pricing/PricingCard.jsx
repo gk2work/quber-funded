@@ -121,11 +121,11 @@ export default function PricingCard({
 
           {/* FEE */}
           <div className="mt-4 flex items-center gap-2 justify-center">
-            <span className="text-2xl font-bold text-gray-900">${fee}</span>
-            <span className="text-sm text-gray-500">Fees</span>
-            <span className="text-lg text-red-500 line-through ml-2">
+            <span className="text-lg font-bold text-red-500 line-through ml-2">
               ${originalFee}
             </span>
+            <span className="text-sm text-gray-500">Fees</span>
+            <span className="text-2xl font-bold text-gray-900">${fee}</span>
           </div>
 
           {/* FEATURES */}

@@ -5,7 +5,7 @@ import ScrollReveal from "./shared/ScrollReveal";
 export default function Footer() {
   return (
     <footer className="bg-[#06090f] text-white border-t border-gray-800 py-12">
-      <div className="max-w-[88rem] mx-auto px-8 lg:px-12">
+      <div className="max-w-[88rem] mx-auto px-8">
         <div className="grid md:grid-cols-2 gap-12 mb-8">
           {/* Left Half - Logo & Description */}
           <ScrollReveal direction="left" delay={0}>
@@ -60,27 +60,22 @@ export default function Footer() {
                 <h3 className="font-bold mb-4">Links</h3>
                 <ul className="space-y-2 text-gray-400 text-sm">
                   <li>
-                    <a href="#pricing" className="hover:text-white">
+                    <a href="/#pricing" className="hover:text-white">
                       Features
                     </a>
                   </li>
                   <li>
-                    <a href="#benefits" className="hover:text-white">
+                    <a href="/#benefits" className="hover:text-white">
                       Benefits
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white">
-                      Services
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-white">
+                    <a href="/#why-quber" className="hover:text-white">
                       Why Quber
                     </a>
                   </li>
                   <li>
-                    <a href="#faqs" className="hover:text-white">
+                    <a href="/#faqs" className="hover:text-white">
                       FAQs
                     </a>
                   </li>
@@ -104,11 +99,6 @@ export default function Footer() {
                   <li>
                     <Link to="/privacy-policy" className="hover:text-white">
                       Privacy Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/latest-news" className="hover:text-white">
-                      Latest News
                     </Link>
                   </li>
                 </ul>

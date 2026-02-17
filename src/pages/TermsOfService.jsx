@@ -3,8 +3,23 @@ import { TNCHeaderBg } from "../assets/images/index";
 export default function TermsOfService() {
   return (
     <div className="min-h-screen">
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.6s ease-out;
+        }
+      `}</style>
       {/* Hero Section with Background */}
-      <section className="relative bg-[#0a1628] text-white h-[300px] flex items-center justify-center px-4">
+      <section className="relative bg-[#0a1628] text-white h-[300px] flex items-center justify-center">
         <div className="absolute inset-0 overflow-hidden">
           <img
             src={TNCHeaderBg}
@@ -12,17 +27,23 @@ export default function TermsOfService() {
             className="w-full h-full object-cover opacity-40"
           />
         </div>
-        <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold z-10 text-center">
-          Terms & Conditions
-        </h1>
+        {/* Content container with max-w-[88rem] */}
+        <div className="relative z-10 max-w-[88rem] mx-auto px-8 lg:px-12 w-full">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            Terms & Conditions
+          </h1>
+        </div>
       </section>
 
       {/* Content Section - White Background */}
       <section className="bg-white py-16">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+        <div className="max-w-[88rem] mx-auto px-8 lg:px-12">
           <div className="space-y-10">
             {/* Section 1 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 1. Acceptance of Terms
               </h2>
@@ -39,7 +60,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 2 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 2. Nature of Services
               </h2>
@@ -70,7 +94,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 3 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 3. Eligibility
               </h2>
@@ -94,7 +121,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 4 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 4. Fees & Payments
               </h2>
@@ -121,7 +151,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 5 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 5. Trading Rules & Risk Parameters
               </h2>
@@ -145,7 +178,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 6 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 6. Account Limits
               </h2>
@@ -158,7 +194,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 7 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.7s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 7. Payouts
               </h2>
@@ -175,7 +214,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 8 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 8. Platform Access & Security
               </h2>
@@ -191,7 +233,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 9 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.9s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 9. Intellectual Property
               </h2>
@@ -203,7 +248,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 10 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "1.0s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 10. Disclaimer
               </h2>
@@ -218,7 +266,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 11 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "1.1s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 11. Termination
               </h2>
@@ -241,7 +292,10 @@ export default function TermsOfService() {
             </div>
 
             {/* Section 12 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "1.2s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 12. Amendments
               </h2>

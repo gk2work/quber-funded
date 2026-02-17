@@ -3,6 +3,21 @@ import { PrivacyPolicyHeaderBg } from "../assets/images/index";
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen">
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.6s ease-out;
+        }
+      `}</style>
       {/* Hero Section with Background */}
       <section className="relative bg-[#0a1628] text-white h-[300px] flex items-center justify-center">
         <div className="absolute inset-0 overflow-hidden">
@@ -12,17 +27,21 @@ export default function PrivacyPolicy() {
             className="w-full h-full object-cover opacity-40"
           />
         </div>
-        <h1 className="relative text-5xl md:text-6xl font-bold z-10">
-          Privacy Policy
-        </h1>
+        {/* Content container with max-w-[88rem] */}
+        <div className="relative z-10 max-w-[88rem] mx-auto px-8 lg:px-12 w-full">
+          <h1 className="text-5xl md:text-6xl font-bold">Privacy Policy</h1>
+        </div>
       </section>
 
       {/* Content Section - White Background */}
       <section className="bg-white py-16">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+        <div className="max-w-[88rem] mx-auto px-8 lg:px-12">
           <div className="space-y-10">
             {/* Section 1 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 1. Overview
               </h2>
@@ -42,7 +61,10 @@ export default function PrivacyPolicy() {
             </div>
 
             {/* Section 2 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 2. Information We Collect
               </h2>
@@ -73,7 +95,10 @@ export default function PrivacyPolicy() {
             </div>
 
             {/* Section 3 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 3. Purpose of Data Collection
               </h2>
@@ -104,7 +129,10 @@ export default function PrivacyPolicy() {
             </div>
 
             {/* Section 4 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 4. Data Sharing Policy
               </h2>
@@ -128,7 +156,10 @@ export default function PrivacyPolicy() {
             </div>
 
             {/* Section 5 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 5. Security Measures
               </h2>
@@ -148,7 +179,10 @@ export default function PrivacyPolicy() {
             </div>
 
             {/* Section 6 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[#0a1628] mb-4">
                 6. Your Data Rights
               </h2>
@@ -172,7 +206,10 @@ export default function PrivacyPolicy() {
             </div>
 
             {/* Section 7 */}
-            <div>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.7s", animationFillMode: "forwards" }}
+            >
               <h2 className="text-2xl font-bold text-[0a1628] mb-4">
                 7. Updates to This Policy
               </h2>

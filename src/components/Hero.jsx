@@ -1,7 +1,43 @@
+import { useState, useEffect } from "react";
 import RippleButton from "./ui/RippleButton";
 import ScrollReveal from "./shared/ScrollReveal";
 
 export default function Hero() {
+  const [typingText, setTypingText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const phrases = ["Pure Performance.", "Pure Profit.", "Pure Strategy."];
+
+  useEffect(() => {
+    const currentPhrase = phrases[phraseIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseTime = 2000;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        // Typing forward
+        if (typingText.length < currentPhrase.length) {
+          setTypingText(currentPhrase.slice(0, typingText.length + 1));
+        } else {
+          // Pause before deleting
+          setTimeout(() => setIsDeleting(true), pauseTime);
+        }
+      } else {
+        // Deleting backward
+        if (typingText.length > 0) {
+          setTypingText(currentPhrase.slice(0, typingText.length - 1));
+        } else {
+          // Move to next phrase
+          setIsDeleting(false);
+          setPhraseIndex((prev) => (prev + 1) % phrases.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [typingText, isDeleting, phraseIndex]);
+
   return (
     <section
       className="relative bg-[#06090f] text-white overflow-hidden
@@ -29,7 +65,10 @@ export default function Hero() {
               <h1 className="text-4xl md:text-[44px] lg:text-[64px] font-semibold leading-[1.05]">
                 Capital Without <br />
                 Competition. Just <br />
-                <span className="text-blue-500">Pure Performance.</span>
+                <span className="text-blue-500">
+                  {typingText}
+                  <span className="animate-pulse">|</span>
+                </span>
               </h1>
             </ScrollReveal>
 
